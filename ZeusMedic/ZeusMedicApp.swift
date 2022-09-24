@@ -11,7 +11,9 @@ import SwiftUI
 struct ZeusMedicApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environmentObject(ZeusModel())
+            
         }
     }
 }

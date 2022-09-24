@@ -8,17 +8,81 @@
 
 /* Begin PBXBuildFile section */
 		100D67F428CC211E009B17DC /* ZeusMedicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D67F328CC211E009B17DC /* ZeusMedicApp.swift */; };
-		100D67F628CC211E009B17DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D67F528CC211E009B17DC /* ContentView.swift */; };
+		100D67F628CC211E009B17DC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D67F528CC211E009B17DC /* MainView.swift */; };
 		100D67F828CC2120009B17DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100D67F728CC2120009B17DC /* Assets.xcassets */; };
 		100D67FB28CC2120009B17DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100D67FA28CC2120009B17DC /* Preview Assets.xcassets */; };
+		100D680628CC3360009B17DC /* ZeusTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D680528CC3360009B17DC /* ZeusTabView.swift */; };
+		100D680828CC38BD009B17DC /* DiagnosisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D680728CC38BD009B17DC /* DiagnosisView.swift */; };
+		100D680B28CC4300009B17DC /* ButtonZM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D680A28CC4300009B17DC /* ButtonZM.swift */; };
+		100D680F28CC4876009B17DC /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D680E28CC4876009B17DC /* NewsView.swift */; };
+		10143AD628D2D5EA003440D8 /* TextFieldZM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10143AD528D2D5EA003440D8 /* TextFieldZM.swift */; };
+		10315DCE28D589E900E089F2 /* doctors.json in Resources */ = {isa = PBXBuildFile; fileRef = 10315DCD28D589E800E089F2 /* doctors.json */; };
+		10315DD028D58A2900E089F2 /* Zeus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DCF28D58A2800E089F2 /* Zeus.swift */; };
+		10315DD328D58BDC00E089F2 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DD228D58BDC00E089F2 /* DataService.swift */; };
+		10315DD528D58D1300E089F2 /* ZeusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DD428D58D1200E089F2 /* ZeusModel.swift */; };
+		10315DD728D67B2E00E089F2 /* tableAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DD628D67B2E00E089F2 /* tableAdmin.swift */; };
+		10315DD928D67C0A00E089F2 /* tableAdmin.json in Resources */ = {isa = PBXBuildFile; fileRef = 10315DD828D67C0A00E089F2 /* tableAdmin.json */; };
+		10315DDC28D6844700E089F2 /* ZeusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DDB28D6844700E089F2 /* ZeusDetailView.swift */; };
+		10315DDE28D684CD00E089F2 /* ZeusListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DDD28D684CD00E089F2 /* ZeusListView.swift */; };
+		10315DE228D6B02600E089F2 /* ZeusMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DE128D6B02600E089F2 /* ZeusMapView.swift */; };
+		10E9AC3428D967D700AF1465 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC3328D967D700AF1465 /* CustomTabBar.swift */; };
+		10E9AC3628D9683800AF1465 /* ZeusRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC3528D9683800AF1465 /* ZeusRootView.swift */; };
+		10E9AC3828D9683C00AF1465 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC3728D9683C00AF1465 /* TabBarButton.swift */; };
+		10E9AC3C28D9690C00AF1465 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC3B28D9690C00AF1465 /* Fonts.swift */; };
+		10E9AC3E28D9691000AF1465 /* CreateProfileTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC3D28D9691000AF1465 /* CreateProfileTextFieldStyle.swift */; };
+		10E9AC4028D9691200AF1465 /* OnBoardingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC3F28D9691200AF1465 /* OnBoardingButtonStyle.swift */; };
+		10E9AC4B28DA523C00AF1465 /* style.html in Resources */ = {isa = PBXBuildFile; fileRef = 10E9AC4A28DA523C00AF1465 /* style.html */; };
+		10E9AC4E28DAF1ED00AF1465 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = 10E9AC4D28DAF1ED00AF1465 /* RichText */; };
+		10E9AC5128DB027000AF1465 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 10E9AC5028DB027000AF1465 /* FirebaseAuth */; };
+		10E9AC5328DB027000AF1465 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 10E9AC5228DB027000AF1465 /* FirebaseDatabase */; };
+		10E9AC5528DB027000AF1465 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 10E9AC5428DB027000AF1465 /* FirebaseFirestore */; };
+		10E9AC5728DB027000AF1465 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 10E9AC5628DB027000AF1465 /* FirebaseFirestoreSwift */; };
+		10E9AC5928DB027000AF1465 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 10E9AC5828DB027000AF1465 /* FirebaseStorage */; };
+		10E9AC5B28DB053C00AF1465 /* ZeusCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC5A28DB053C00AF1465 /* ZeusCategoryView.swift */; };
+		10E9AC5D28DC354C00AF1465 /* ZeusMapViewSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC5C28DC354C00AF1465 /* ZeusMapViewSimple.swift */; };
+		10E9AC5F28DC9FC700AF1465 /* BoxButtonZM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC5E28DC9FC700AF1465 /* BoxButtonZM.swift */; };
+		10E9AC6128DD508200AF1465 /* SymptomsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC6028DD508200AF1465 /* SymptomsPickerView.swift */; };
+		10E9AC6328DE121900AF1465 /* SortDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC6228DE121900AF1465 /* SortDataModel.swift */; };
+		10E9AC6628DE16F800AF1465 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC6528DE16F800AF1465 /* OnboardingView.swift */; };
+		10E9AC6828DE79B200AF1465 /* BusinessSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC6728DE79B200AF1465 /* BusinessSearch.swift */; };
+		10E9AC6A28DEB74900AF1465 /* LocationDeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC6928DEB74800AF1465 /* LocationDeniedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		100D67F028CC211E009B17DC /* ZeusMedic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZeusMedic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		100D67F328CC211E009B17DC /* ZeusMedicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusMedicApp.swift; sourceTree = "<group>"; };
-		100D67F528CC211E009B17DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		100D67F528CC211E009B17DC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		100D67F728CC2120009B17DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		100D67FA28CC2120009B17DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		100D680528CC3360009B17DC /* ZeusTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusTabView.swift; sourceTree = "<group>"; };
+		100D680728CC38BD009B17DC /* DiagnosisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisView.swift; sourceTree = "<group>"; };
+		100D680A28CC4300009B17DC /* ButtonZM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonZM.swift; sourceTree = "<group>"; };
+		100D680E28CC4876009B17DC /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		10143AD528D2D5EA003440D8 /* TextFieldZM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldZM.swift; sourceTree = "<group>"; };
+		10315DCD28D589E800E089F2 /* doctors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doctors.json; sourceTree = "<group>"; };
+		10315DCF28D58A2800E089F2 /* Zeus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zeus.swift; sourceTree = "<group>"; };
+		10315DD228D58BDC00E089F2 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		10315DD428D58D1200E089F2 /* ZeusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusModel.swift; sourceTree = "<group>"; };
+		10315DD628D67B2E00E089F2 /* tableAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableAdmin.swift; sourceTree = "<group>"; };
+		10315DD828D67C0A00E089F2 /* tableAdmin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tableAdmin.json; sourceTree = "<group>"; };
+		10315DDB28D6844700E089F2 /* ZeusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusDetailView.swift; sourceTree = "<group>"; };
+		10315DDD28D684CD00E089F2 /* ZeusListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusListView.swift; sourceTree = "<group>"; };
+		10315DE128D6B02600E089F2 /* ZeusMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusMapView.swift; sourceTree = "<group>"; };
+		10E9AC3328D967D700AF1465 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		10E9AC3528D9683800AF1465 /* ZeusRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusRootView.swift; sourceTree = "<group>"; };
+		10E9AC3728D9683C00AF1465 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
+		10E9AC3B28D9690C00AF1465 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		10E9AC3D28D9691000AF1465 /* CreateProfileTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileTextFieldStyle.swift; sourceTree = "<group>"; };
+		10E9AC3F28D9691200AF1465 /* OnBoardingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingButtonStyle.swift; sourceTree = "<group>"; };
+		10E9AC4A28DA523C00AF1465 /* style.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = style.html; sourceTree = "<group>"; };
+		10E9AC5A28DB053C00AF1465 /* ZeusCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeusCategoryView.swift; sourceTree = "<group>"; };
+		10E9AC5C28DC354C00AF1465 /* ZeusMapViewSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusMapViewSimple.swift; sourceTree = "<group>"; };
+		10E9AC5E28DC9FC700AF1465 /* BoxButtonZM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxButtonZM.swift; sourceTree = "<group>"; };
+		10E9AC6028DD508200AF1465 /* SymptomsPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsPickerView.swift; sourceTree = "<group>"; };
+		10E9AC6228DE121900AF1465 /* SortDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortDataModel.swift; sourceTree = "<group>"; };
+		10E9AC6528DE16F800AF1465 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		10E9AC6728DE79B200AF1465 /* BusinessSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSearch.swift; sourceTree = "<group>"; };
+		10E9AC6928DEB74800AF1465 /* LocationDeniedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDeniedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +90,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10E9AC5728DB027000AF1465 /* FirebaseFirestoreSwift in Frameworks */,
+				10E9AC5328DB027000AF1465 /* FirebaseDatabase in Frameworks */,
+				10E9AC5528DB027000AF1465 /* FirebaseFirestore in Frameworks */,
+				10E9AC4E28DAF1ED00AF1465 /* RichText in Frameworks */,
+				10E9AC5128DB027000AF1465 /* FirebaseAuth in Frameworks */,
+				10E9AC5928DB027000AF1465 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,8 +122,16 @@
 			isa = PBXGroup;
 			children = (
 				100D67F328CC211E009B17DC /* ZeusMedicApp.swift */,
-				100D67F528CC211E009B17DC /* ContentView.swift */,
+				10E9AC6428DE16E600AF1465 /* OnBoarding */,
+				100D680228CC2DAC009B17DC /* Views */,
+				100D680328CC2DB2009B17DC /* ViewModel */,
+				100D680428CC2DBD009B17DC /* Model */,
+				10315DD128D58BC500E089F2 /* Data Service */,
+				10E9AC4328D9693C00AF1465 /* Helper */,
 				100D67F728CC2120009B17DC /* Assets.xcassets */,
+				10E9AC4A28DA523C00AF1465 /* style.html */,
+				10315DD828D67C0A00E089F2 /* tableAdmin.json */,
+				10315DCD28D589E800E089F2 /* doctors.json */,
 				100D67F928CC2120009B17DC /* Preview Content */,
 			);
 			path = ZeusMedic;
@@ -65,6 +143,92 @@
 				100D67FA28CC2120009B17DC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		100D680228CC2DAC009B17DC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				100D680528CC3360009B17DC /* ZeusTabView.swift */,
+				10E9AC3528D9683800AF1465 /* ZeusRootView.swift */,
+				10E9AC3328D967D700AF1465 /* CustomTabBar.swift */,
+				10E9AC3728D9683C00AF1465 /* TabBarButton.swift */,
+				100D67F528CC211E009B17DC /* MainView.swift */,
+				100D680E28CC4876009B17DC /* NewsView.swift */,
+				10315DDD28D684CD00E089F2 /* ZeusListView.swift */,
+				10E9AC5A28DB053C00AF1465 /* ZeusCategoryView.swift */,
+				100D680728CC38BD009B17DC /* DiagnosisView.swift */,
+				10E9AC6028DD508200AF1465 /* SymptomsPickerView.swift */,
+				10E9AC6928DEB74800AF1465 /* LocationDeniedView.swift */,
+				10315DDA28D6842400E089F2 /* Details */,
+				100D680928CC42DB009B17DC /* Reusable */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		100D680328CC2DB2009B17DC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				10315DD428D58D1200E089F2 /* ZeusModel.swift */,
+				10E9AC6228DE121900AF1465 /* SortDataModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		100D680428CC2DBD009B17DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10315DCF28D58A2800E089F2 /* Zeus.swift */,
+				10315DD628D67B2E00E089F2 /* tableAdmin.swift */,
+				10E9AC6728DE79B200AF1465 /* BusinessSearch.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		100D680928CC42DB009B17DC /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				100D680A28CC4300009B17DC /* ButtonZM.swift */,
+				10143AD528D2D5EA003440D8 /* TextFieldZM.swift */,
+				10E9AC5E28DC9FC700AF1465 /* BoxButtonZM.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		10315DD128D58BC500E089F2 /* Data Service */ = {
+			isa = PBXGroup;
+			children = (
+				10315DD228D58BDC00E089F2 /* DataService.swift */,
+			);
+			name = "Data Service";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		10315DDA28D6842400E089F2 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				10315DDB28D6844700E089F2 /* ZeusDetailView.swift */,
+				10315DE128D6B02600E089F2 /* ZeusMapView.swift */,
+				10E9AC5C28DC354C00AF1465 /* ZeusMapViewSimple.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		10E9AC4328D9693C00AF1465 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				10E9AC3B28D9690C00AF1465 /* Fonts.swift */,
+				10E9AC3F28D9691200AF1465 /* OnBoardingButtonStyle.swift */,
+				10E9AC3D28D9691000AF1465 /* CreateProfileTextFieldStyle.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		10E9AC6428DE16E600AF1465 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				10E9AC6528DE16F800AF1465 /* OnboardingView.swift */,
+			);
+			path = OnBoarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +247,14 @@
 			dependencies = (
 			);
 			name = ZeusMedic;
+			packageProductDependencies = (
+				10E9AC4D28DAF1ED00AF1465 /* RichText */,
+				10E9AC5028DB027000AF1465 /* FirebaseAuth */,
+				10E9AC5228DB027000AF1465 /* FirebaseDatabase */,
+				10E9AC5428DB027000AF1465 /* FirebaseFirestore */,
+				10E9AC5628DB027000AF1465 /* FirebaseFirestoreSwift */,
+				10E9AC5828DB027000AF1465 /* FirebaseStorage */,
+			);
 			productName = ZeusMedic;
 			productReference = 100D67F028CC211E009B17DC /* ZeusMedic.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +283,10 @@
 				Base,
 			);
 			mainGroup = 100D67E728CC211E009B17DC;
+			packageReferences = (
+				10E9AC4C28DAF1ED00AF1465 /* XCRemoteSwiftPackageReference "RichText" */,
+				10E9AC4F28DB027000AF1465 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 100D67F128CC211E009B17DC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,7 +301,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10315DD928D67C0A00E089F2 /* tableAdmin.json in Resources */,
+				10315DCE28D589E900E089F2 /* doctors.json in Resources */,
 				100D67FB28CC2120009B17DC /* Preview Assets.xcassets in Resources */,
+				10E9AC4B28DA523C00AF1465 /* style.html in Resources */,
 				100D67F828CC2120009B17DC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +316,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				100D67F628CC211E009B17DC /* ContentView.swift in Sources */,
+				10315DD328D58BDC00E089F2 /* DataService.swift in Sources */,
+				100D680B28CC4300009B17DC /* ButtonZM.swift in Sources */,
+				10143AD628D2D5EA003440D8 /* TextFieldZM.swift in Sources */,
+				10315DDE28D684CD00E089F2 /* ZeusListView.swift in Sources */,
+				10E9AC6A28DEB74900AF1465 /* LocationDeniedView.swift in Sources */,
+				10E9AC3628D9683800AF1465 /* ZeusRootView.swift in Sources */,
+				10E9AC5F28DC9FC700AF1465 /* BoxButtonZM.swift in Sources */,
+				10E9AC3828D9683C00AF1465 /* TabBarButton.swift in Sources */,
+				10315DD728D67B2E00E089F2 /* tableAdmin.swift in Sources */,
+				10315DD028D58A2900E089F2 /* Zeus.swift in Sources */,
+				10315DD528D58D1300E089F2 /* ZeusModel.swift in Sources */,
+				10E9AC3428D967D700AF1465 /* CustomTabBar.swift in Sources */,
+				10E9AC6628DE16F800AF1465 /* OnboardingView.swift in Sources */,
+				100D67F628CC211E009B17DC /* MainView.swift in Sources */,
 				100D67F428CC211E009B17DC /* ZeusMedicApp.swift in Sources */,
+				10315DE228D6B02600E089F2 /* ZeusMapView.swift in Sources */,
+				10E9AC4028D9691200AF1465 /* OnBoardingButtonStyle.swift in Sources */,
+				100D680F28CC4876009B17DC /* NewsView.swift in Sources */,
+				10E9AC6128DD508200AF1465 /* SymptomsPickerView.swift in Sources */,
+				10E9AC6328DE121900AF1465 /* SortDataModel.swift in Sources */,
+				10315DDC28D6844700E089F2 /* ZeusDetailView.swift in Sources */,
+				100D680828CC38BD009B17DC /* DiagnosisView.swift in Sources */,
+				10E9AC3E28D9691000AF1465 /* CreateProfileTextFieldStyle.swift in Sources */,
+				10E9AC3C28D9690C00AF1465 /* Fonts.swift in Sources */,
+				100D680628CC3360009B17DC /* ZeusTabView.swift in Sources */,
+				10E9AC5D28DC354C00AF1465 /* ZeusMapViewSimple.swift in Sources */,
+				10E9AC5B28DB053C00AF1465 /* ZeusCategoryView.swift in Sources */,
+				10E9AC6828DE79B200AF1465 /* BusinessSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +474,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ZeusMedic/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSContactsUsageDescription = "Need to get contacts data";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow location access to get results near you";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Let us locate you to get results";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -297,6 +505,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ZeusMedic/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSContactsUsageDescription = "Need to get contacts data";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow location access to get results near you";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Let us locate you to get results";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -337,6 +548,58 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		10E9AC4C28DAF1ED00AF1465 /* XCRemoteSwiftPackageReference "RichText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NuPlay/RichText";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		10E9AC4F28DB027000AF1465 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		10E9AC4D28DAF1ED00AF1465 /* RichText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10E9AC4C28DAF1ED00AF1465 /* XCRemoteSwiftPackageReference "RichText" */;
+			productName = RichText;
+		};
+		10E9AC5028DB027000AF1465 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10E9AC4F28DB027000AF1465 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		10E9AC5228DB027000AF1465 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10E9AC4F28DB027000AF1465 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		10E9AC5428DB027000AF1465 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10E9AC4F28DB027000AF1465 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		10E9AC5628DB027000AF1465 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10E9AC4F28DB027000AF1465 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		10E9AC5828DB027000AF1465 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10E9AC4F28DB027000AF1465 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 100D67E828CC211E009B17DC /* Project object */;
 }
