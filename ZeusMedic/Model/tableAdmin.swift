@@ -9,36 +9,42 @@ import Foundation
 import CoreLocation
 import MapKit
 
-class tableAdmin:Decodable, Identifiable, ObservableObject {
+class tableAdmin: Decodable, Identifiable, ObservableObject {
     
-     var location:CLLocation{
-         return CLLocation(latitude: self.latitude ?? 0, longitude: self.longitude ?? 0)
-     }
+    var location:CLLocation{
+        return CLLocation(latitude: self.latitude ?? 0, longitude: self.longitude ?? 0)
+    }
     
-     var id:Int?
-     var providerId:Int?
-     var fee:Int?
-     var firstName:String?
-     var lastName:String?
-     var nameAr:String?
-     var profile:String?
-     var userName:String?
-     var email:String?
-     var password:String?
-     var roleId:Int?
-     var phoneNumber:String?
-     var empStartDate:String?
-     var empEndDate:String?
-     var posPin:Int?
-     var Exempt:String?
-     var adminPermissionSet:String?
-     var milageReimb:Int?
-     var providerAdminRole:String?
-     var isAdmin:Int?
-     var status:Int?
-     var rememberToken:String?
-     var token:String?
- 
+//    var distance:CLLocationDistance {
+//        return location.distance(from: self.location)
+//    }
+    
+    var distance:CLLocationDistance?
+    
+    var id:Int?
+    var providerId:Int?
+    var fee:Int?
+    var firstName:String?
+    var lastName:String?
+    var nameAr:String?
+    var profile:String?
+    var userName:String?
+    var email:String?
+    var password:String?
+    var roleId:Int?
+    var phoneNumber:String?
+    var empStartDate:String?
+    var empEndDate:String?
+    var posPin:Int?
+    var Exempt:String?
+    var adminPermissionSet:String?
+    var milageReimb:Int?
+    var providerAdminRole:String?
+    var isAdmin:Int?
+    var status:Int?
+    var rememberToken:String?
+    var token:String?
+    
     var supportEmail:String?
     var LanguageSpoken:String?
     var professionalMemberships:String?
@@ -53,7 +59,7 @@ class tableAdmin:Decodable, Identifiable, ObservableObject {
     var state:Int?
     var city:Int?
     var zip:Int?
-     var about:String?
+    var about:String?
     var aboutAr:String?
     var latitude: Double?
     var longitude: Double?
@@ -67,8 +73,8 @@ class tableAdmin:Decodable, Identifiable, ObservableObject {
     var cust:Int?
     var professionalStatement:String?
     var hospitals:String?
- 
-//"doctors": null,
+    
+    //"doctors": null,
     
     var subscriptionStart:String?
     var subscriptionEnd:String?
@@ -80,7 +86,7 @@ class tableAdmin:Decodable, Identifiable, ObservableObject {
     var newFileFee:Double?
     var oldFileTimeMinutes:Int?
     var oldFileFee:Int?
-
+    
     //    var bookingCancellationTime
     
     var workingHours:String?
@@ -91,11 +97,7 @@ class tableAdmin:Decodable, Identifiable, ObservableObject {
     var createdAt:String?
     var updatedAt:String?
     var doctorViewCount:Int?
-
     
-    func distance(to location: CLLocation) -> CLLocationDistance {
-           return location.distance(from: self.location)
-       }
     
     
 }

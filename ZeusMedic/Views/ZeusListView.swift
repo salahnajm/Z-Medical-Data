@@ -55,6 +55,14 @@ struct ZeusListView: View {
                                         Text(t.firstName ?? "")
                                             .font(Font.subheadline)
                                             .bold()
+                                        
+                                        Spacer()
+                                        //Distance. I am not sure if it's in KM or other measure?
+                                        
+                                        
+                                        Text(String(format: "%.1f km away", (t.distance ?? 0)/1000))
+                                            .font(Font.caption2)
+                                        
                                     }
                                 }.foregroundColor(.black)
                             }

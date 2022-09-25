@@ -15,17 +15,6 @@ struct ZeusDetailView: View {
     var selectedBusiness:tableAdmin
     @State private var selectedSheet = false
     
-    //    @State var region = MKCoordinateRegion(
-    //        center:  CLLocationCoordinate2D(
-    //            latitude: 37.789467,
-    //            longitude:-124.415772
-    //        ),
-    //        span: MKCoordinateSpan(
-    //            latitudeDelta: 0.5,
-    //            longitudeDelta: 0.5
-    //        )
-    //    )
-    
     var body: some View {
         
         VStack(alignment:.leading) {
@@ -74,7 +63,10 @@ struct ZeusDetailView: View {
                             .frame(width: 24, height: 24)
                             .scaledToFill()
                         
-                        Text(selectedBusiness.phoneNumber ?? "" )
+                     //   Link(String(selectedBusiness.phoneNumber ?? "" ), destination: URL(string:"tel:\(selectedBusiness.phoneNumber ?? "" )")??)
+                      //      .font(Font.smallText)
+                        
+                       Text(selectedBusiness.phoneNumber ?? "" )
                             .font(Font.smallText)
                     }
                 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     
-    @EnvironmentObject var search:BusinessSearch
+    @EnvironmentObject var model:ZeusModel
     
     var body: some View {
         NavigationView {
@@ -18,7 +18,7 @@ struct SearchView: View {
                 ScrollView {
                     LazyVStack(alignment:.leading){
                         
-                        ForEach(search.businesses) { t in
+                        ForEach(model.tableZeus) { t in
                            
                                 NavigationLink {
                                     //Destination once clicked
@@ -32,9 +32,8 @@ struct SearchView: View {
                                             .frame(height:48)
                                             .cornerRadius(5)
                                         
-                                        Text(t.)
-                                            .font(Font.subheadline)
-                                            .bold()
+                                     //   Text(t)
+                                         
                                     }
                                 }.foregroundColor(.black)
                             }
@@ -47,10 +46,8 @@ struct SearchView: View {
                 
             }
         }
-        
-    }
-    
 }
+
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
