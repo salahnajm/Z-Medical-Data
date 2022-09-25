@@ -7,8 +7,13 @@
 
 import Foundation
 import CoreLocation
+import MapKit
 
 class tableAdmin:Decodable, Identifiable, ObservableObject {
+    
+     var location:CLLocation{
+         return CLLocation(latitude: self.latitude ?? 0, longitude: self.longitude ?? 0)
+     }
     
      var id:Int?
      var providerId:Int?
@@ -87,5 +92,10 @@ class tableAdmin:Decodable, Identifiable, ObservableObject {
     var updatedAt:String?
     var doctorViewCount:Int?
 
+    
+    func distance(to location: CLLocation) -> CLLocationDistance {
+           return location.distance(from: self.location)
+       }
+    
     
 }

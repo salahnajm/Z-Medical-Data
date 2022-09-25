@@ -55,6 +55,10 @@ class DataService {
                     
                     let ZeusData2 = try decoder2.decode([tableAdmin].self, from: data2)
                     
+                    // I have the data here
+                    
+                    
+                    
                      
                     return ZeusData2
                 }catch {

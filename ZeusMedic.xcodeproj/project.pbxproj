@@ -46,6 +46,7 @@
 		10E9AC6628DE16F800AF1465 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC6528DE16F800AF1465 /* OnboardingView.swift */; };
 		10E9AC6828DE79B200AF1465 /* BusinessSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC6728DE79B200AF1465 /* BusinessSearch.swift */; };
 		10E9AC6A28DEB74900AF1465 /* LocationDeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC6928DEB74800AF1465 /* LocationDeniedView.swift */; };
+		10E9AC6E28E00D2500AF1465 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC6D28E00D2500AF1465 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		10E9AC6528DE16F800AF1465 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		10E9AC6728DE79B200AF1465 /* BusinessSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSearch.swift; sourceTree = "<group>"; };
 		10E9AC6928DEB74800AF1465 /* LocationDeniedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDeniedView.swift; sourceTree = "<group>"; };
+		10E9AC6D28E00D2500AF1465 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +127,8 @@
 				10E9AC6428DE16E600AF1465 /* OnBoarding */,
 				100D680228CC2DAC009B17DC /* Views */,
 				100D680328CC2DB2009B17DC /* ViewModel */,
-				100D680428CC2DBD009B17DC /* Model */,
 				10315DD128D58BC500E089F2 /* Data Service */,
+				100D680428CC2DBD009B17DC /* Model */,
 				10E9AC4328D9693C00AF1465 /* Helper */,
 				100D67F728CC2120009B17DC /* Assets.xcassets */,
 				10E9AC4A28DA523C00AF1465 /* style.html */,
@@ -159,6 +161,7 @@
 				100D680728CC38BD009B17DC /* DiagnosisView.swift */,
 				10E9AC6028DD508200AF1465 /* SymptomsPickerView.swift */,
 				10E9AC6928DEB74800AF1465 /* LocationDeniedView.swift */,
+				10E9AC6D28E00D2500AF1465 /* SearchView.swift */,
 				10315DDA28D6842400E089F2 /* Details */,
 				100D680928CC42DB009B17DC /* Reusable */,
 			);
@@ -169,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				10315DD428D58D1200E089F2 /* ZeusModel.swift */,
+				10E9AC6728DE79B200AF1465 /* BusinessSearch.swift */,
 				10E9AC6228DE121900AF1465 /* SortDataModel.swift */,
 			);
 			path = ViewModel;
@@ -179,7 +183,6 @@
 			children = (
 				10315DCF28D58A2800E089F2 /* Zeus.swift */,
 				10315DD628D67B2E00E089F2 /* tableAdmin.swift */,
-				10E9AC6728DE79B200AF1465 /* BusinessSearch.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				10315DD328D58BDC00E089F2 /* DataService.swift in Sources */,
 				100D680B28CC4300009B17DC /* ButtonZM.swift in Sources */,
 				10143AD628D2D5EA003440D8 /* TextFieldZM.swift in Sources */,
+				10E9AC6E28E00D2500AF1465 /* SearchView.swift in Sources */,
 				10315DDE28D684CD00E089F2 /* ZeusListView.swift in Sources */,
 				10E9AC6A28DEB74900AF1465 /* LocationDeniedView.swift in Sources */,
 				10E9AC3628D9683800AF1465 /* ZeusRootView.swift in Sources */,
