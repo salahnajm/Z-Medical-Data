@@ -2,7 +2,7 @@
 //  Fonts.swift
 //  swiftui-chat
 //
-//  Created by Chris Ching on 2021-11-29.
+//  Created by Salah Najm on 2021-11-29.
 //
 
 import Foundation

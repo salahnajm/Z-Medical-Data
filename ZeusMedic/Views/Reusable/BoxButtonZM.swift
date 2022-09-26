@@ -12,27 +12,21 @@ struct BoxButtonZM: View {
     var label:String
     
     var body: some View {
-        
-        
-   
-            
         ZStack{
-        
+            
             Rectangle()
-                .cornerRadius(5)
+                .frame(height:48)
+                .cornerRadius(10)
                 .shadow(color: .gray, radius: 5, x: 3, y: 3)
             Text(label)
-            
-                    .foregroundColor(.black)
+                .foregroundColor(.black)
             
         }
-        
-    
     }
 }
 
-//struct BoxButtonZM_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BoxButtonZM()
-//    }
-//}
+struct BoxButtonZM_Previews: PreviewProvider {
+    static var previews: some View {
+        BoxButtonZM(label: "Button")
+    }
+}

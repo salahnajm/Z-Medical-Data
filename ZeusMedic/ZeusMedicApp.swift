@@ -13,6 +13,7 @@ struct ZeusMedicApp: App {
         WindowGroup {
             RootView()
                 .environmentObject(ZeusModel())
+                .environmentObject(DiagnosisModel())
             
         }
     }

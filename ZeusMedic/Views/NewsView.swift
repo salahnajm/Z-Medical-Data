@@ -15,19 +15,26 @@ struct NewsView: View {
        
         ScrollView{
         LazyVStack{
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             Text("Medical Articles")
+                .font(Font.largeTitle)
             Text("Medical images")
+                .font(Font.title2)
             
-            ForEach(model.doctors) { item in
-                
-                Text(item.address_line_1 ?? "")
-                Text(item.about ?? "")
+            Image("sweet")
+                .resizable()
+                .frame(width: 78, height: 78)
+                .scaledToFill()
+                .clipped()
+           Text(" When people try to cut sugar out of their diets, for reasons such as trying to lose weight or trying to control their blood sugar, they may turn to artificial sweeteners. Artificial sweeteners have been around for more than 100 years. Saccharin, for example, which is found in the sugar substitute Sweet’N Low, was first discoveredTrusted Source in 1879. Since then, researchers have discovered numerous other artificial sweeteners, including sucralose, aspartame, stevia, and xylitol. There has almost always been controversy surrounding artificial sweeteners. As the Harvard School of Public Health notes, concerns include the development of type 2 diabetes and weight gain but the evidence is varied and inconclusive.")
+           
+            
             }
-        }
         }.padding(.horizontal)
-    }
+
+        }
+    
 }
+
 
 
 struct NewsView_Previews: PreviewProvider {

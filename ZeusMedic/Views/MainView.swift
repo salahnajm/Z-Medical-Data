@@ -9,70 +9,77 @@ import SwiftUI
 
 struct MainView: View {
     
-  //  @State var findCategories:String
-    @State private var searchNearby=""
+    @EnvironmentObject var model:ZeusModel
+    
+    @State private var searchShopping = ""
     
     var body: some View {
-    
-        VStack {
-          
-            Spacer()
+        
+        NavigationView{
+            ZStack {
+                Color("background")
+                    .ignoresSafeArea(edges: [.top, .bottom])
             
-            Text("ZeusMedic")
-                .font(Font.titleText)
-                .bold()
-            Image("logoTransparent")
-                .resizable()
-                .frame(height:170)
-                .aspectRatio(1, contentMode: .fill)
-           //     .scaledToFit()
+            
+            VStack {
+            
                 
-
-            
-            Spacer()
-            //Text Field
-            
-            Text("Find nearby medical help")
-                .font(Font.bodyParagraph)
-                .padding(.bottom, 15)
-            
-            ZStack{
-                Rectangle()
-                    .frame(height:56)
-                    .foregroundColor(Color("input"))
+                Spacer()
                 
-                HStack{
+                Text("ZeusMedic")
+                    .font(Font.titleText)
+                    .bold()
+                Image("logoTransparent")
+                    .resizable()
+                    .frame(height:170)
+                    .aspectRatio(1, contentMode: .fill)
+                //     .scaledToFit()
+                
+                Spacer()
+                //Text Field
+  
+                Text("Featured Products")
+                    .font(Font.title2)
+                    .padding(.horizontal)
+        
+                ScrollView (.horizontal, showsIndicators: false) {
                     
-                    TextField("e.g. Doctor...", text: $searchNearby)
-                        .font(Font.bodyParagraph)
-                        .padding(.horizontal)
-                    Spacer()
-                    
-                    Button {
-                       searchNearby=""
-                        
-                    } label: {
-                        Image(systemName: "multiply.circle.fill")
-                           
-                    }
-                    .frame(width: 19, height: 19)
-                    .tint(Color("icons-input"))
-                   
-                    
+                    HStack (spacing: 10) {
+                        ForEach(model.shopping) { items in
+                            
+                            if items.isFeatured == "TRUE" {
+                                NavigationLink(
+                                    
+                                    
+                                    destination: ShoppingItemDetail(selectedShoppingItem: items),
+                                    
+                                    label: {
+                                        //  Text(items.image1 ?? "")
+                                        ProductCardView(image: Image(items.image1 ?? ""), size: 150, title: items.title ?? "", price: items.price ?? 0, rating: items.starRating ?? 0)
+                                    })
+                                .navigationBarHidden(true)
+                                
+                                
+                            }
+                            
+                        }
                 }
-            
-            
-
-            }.padding()
-            
-            Button {
-                //Action
-            } label: {
-                ButtonZM(buttonText: "Find")
+                
+                }
+                    
+                Spacer()
+                
+                               NavigationLink(destination: ShoppingListView()) {
+                                   ButtonZM(label: "Shopping")
+                               }
+                               .navigationBarHidden(true)
+                               .padding(.horizontal)
+                               .padding(.bottom, 10)
+                         
             }
-                .padding(.horizontal)
-                .padding(.bottom, 15)
+            }
         }
+            
     }
 }
 

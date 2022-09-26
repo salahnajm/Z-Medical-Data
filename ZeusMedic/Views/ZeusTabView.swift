@@ -16,7 +16,7 @@ struct ZeusTabView: View {
         
         
         TabView(selection: $tabIndex) {
-       
+            
             MainView()
                 .padding()
                 .tabItem {
@@ -26,7 +26,7 @@ struct ZeusTabView: View {
                     }
                 }.tag(1)
             
-            DiagnosisView(agePicker: 1, durationOfSymptoms: 1)
+            DiagnosisView(genderPicker: "", agePicker: "", durationOfSymptoms: "")
                 .padding()
                 .tabItem {
                     VStack{
@@ -47,17 +47,17 @@ struct ZeusTabView: View {
                     
                     
                 }.tag(3)
-//            Text("Account")
-//                .padding()
-//                .tabItem {
-//                    VStack{
-//                        Image(systemName: "iphone.homebutton.circle")
-//                        Text("Account")
-//                    }
-//                    
-//                    
-//                }.tag(4)
-//            
+            //            Text("Account")
+            //                .padding()
+            //                .tabItem {
+            //                    VStack{
+            //                        Image(systemName: "iphone.homebutton.circle")
+            //                        Text("Account")
+            //                    }
+            //                    
+            //                    
+            //                }.tag(4)
+            //            
             
             ZeusListView()
                 .padding()
@@ -71,20 +71,20 @@ struct ZeusTabView: View {
                 }.tag(5)
             
             
-//            ZeusMapView(selectedRental: $selectedBusiness)
-//                .padding()
-//                .tabItem {
-//                    VStack{
-//                        Image(systemName: "map.circle")
-//                        Text("Map")
-//                    }
-//
-//
-//                }.tag(6)
-
+            //            ZeusMapView(selectedRental: $selectedBusiness)
+            //                .padding()
+            //                .tabItem {
+            //                    VStack{
+            //                        Image(systemName: "map.circle")
+            //                        Text("Map")
+            //                    }
+            //
+            //
+            //                }.tag(6)
+            
         }
         
-           }
+    }
 }
 struct ZeusTabView_Previews: PreviewProvider {
     static var previews: some View {

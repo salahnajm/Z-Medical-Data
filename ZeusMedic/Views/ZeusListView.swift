@@ -10,16 +10,17 @@ import SwiftUI
 struct ZeusListView: View {
     
     @EnvironmentObject var model:ZeusModel
- 
-    
-    @State private var searchText = ""
+  
+    @State var searchText = ""
     
     // sorted list?
     var businesses = [tableAdmin]()
-    
+
     var body: some View {
+        
         NavigationView {
-            VStack {
+            
+            VStack(alignment:.center) {
                 HStack{
                     TextField("Search", text: $searchText)
                         .font(Font.bodyParagraph)
@@ -35,11 +36,11 @@ struct ZeusListView: View {
                 }.padding()
                 
                 ScrollView {
-                    LazyVStack(alignment:.leading){
+                    LazyVStack{
                         
                         ForEach(model.tableZeus) { t in
                             if t.firstName!.lowercased().contains(searchText.lowercased()) || searchText.isEmpty {
-                                
+
                                 NavigationLink {
                                     //Destination once clicked
                                     ZeusDetailView(selectedBusiness: t)
@@ -51,33 +52,33 @@ struct ZeusListView: View {
                                             .scaledToFit()
                                             .frame(height:48)
                                             .cornerRadius(5)
-                                        
-                                        Text(t.firstName ?? "")
-                                            .font(Font.subheadline)
-                                            .bold()
+                                        VStack(alignment: .leading){
+                                            
+                                            Text(t.firstName ?? "")
+                                                .font(Font.subheadline)
+                                                .bold()
+                                            
+                                            Text(model.specialtyConvertedToString[(t.specialtiesZM2?.first ?? "")] ?? "")
+                                                .font(Font.caption2)
+                                                .italic()
+                                        }
                                         
                                         Spacer()
                                         //Distance. I am not sure if it's in KM or other measure?
-                                        
-                                        
+
                                         Text(String(format: "%.1f km away", (t.distance ?? 0)/1000))
                                             .font(Font.caption2)
-                                        
                                     }
                                 }.foregroundColor(.black)
                             }
                         }
-                        
                     }
                     .padding(.horizontal)
                     .navigationBarTitle((searchText=="" ? "All Listings" : searchText ), displayMode: .inline)
                 }
-                
             }
         }
-        
     }
-    
 }
 
 struct ZeusListView_Previews: PreviewProvider {

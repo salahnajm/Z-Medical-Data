@@ -9,26 +9,28 @@ import SwiftUI
 
 struct ButtonZM: View {
     
-    var buttonText:String
+    var label:String
     
     var body: some View {
         ZStack(alignment:.center){
  
         Rectangle()
             .foregroundColor(.white)
-            .frame(height:45)
+            .frame(height:40)
             .cornerRadius(10)
-            .shadow(color: .gray, radius: 5, x: 3, y: 3)
-        Text(buttonText)
+            .shadow(color: .gray, radius: 4, x: 2, y: 3)
+        Text(label)
+            .bold()
             .padding(.horizontal, 5)
             .foregroundColor(.black)
-            .font(.title)
+            .font(Font.chatHeading)
+           
         }
     }
 }
 
 struct Button_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonZM(buttonText: "Press Me")
+        ButtonZM(label: "Press Me")
     }
 }
