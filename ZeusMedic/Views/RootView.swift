@@ -24,6 +24,7 @@ struct RootView: View {
             
             // Show HomeView
             TopBarView()
+            
             NavigationView{
                 ZStack {
                     Color("background")
@@ -33,7 +34,7 @@ struct RootView: View {
                     case .main:
                         MainView()
                     case .list:
-                        ZeusListView(selectedCategory: $selectedCategory)
+                        MedicalListView(selectedCategory: $selectedCategory)
                  //   case .categories:
                   //      MainCategoryView()
                     case .myHealth:

@@ -1,6 +1,6 @@
 //
 //  ButtonZM.swift
-//  ZeusMedic
+//  Medical App
 //
 //  Created by Salah Najm on 9/9/22.
 //
@@ -16,8 +16,8 @@ struct ButtonZM: View {
  
         Rectangle()
             .foregroundColor(.white)
-            .frame(height:40)
-            .cornerRadius(10)
+            .frame(height:50)
+            .cornerRadius(8)
             .shadow(color: .gray, radius: 4, x: 2, y: 3)
         Text(label)
             .bold()

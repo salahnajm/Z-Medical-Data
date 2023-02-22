@@ -1,6 +1,6 @@
 //
 //  DiagnosisView.swift
-//  ZeusMedic
+//  Medical App
 //
 //  Created by Salah Najm on 9/9/22.
 //
@@ -23,10 +23,11 @@ struct DiagnosisView: View {
     @State var showDiagnosisResults:Bool = false
     
     var body: some View {
+        
         GeometryReader { geo in
             VStack(alignment: .leading, spacing: 0) {
                 
-                Text("Diagnose Me")
+                Text(Constants.DiagnosisViewTitle)
                     .font(Font.chatHeading)
                     .bold()
                     .padding(.bottom, 30)
@@ -34,11 +35,14 @@ struct DiagnosisView: View {
                 VStack(alignment: .leading) {
                     
                     // Gender Picker
-                    Text("Select gender")
+                    Text(Constants.SelectGenderTitle)
                         .bold()
                     
                     Group{
                         HStack {
+                            
+                            Spacer()
+                            
                             Button {
                                 //Button code here
                                 self.didTap1 = true
@@ -55,7 +59,7 @@ struct DiagnosisView: View {
                                 
                                 ZStack{
                                     Rectangle()
-                                        .frame(width: geo.size.width/4, height: geo.size.width/4)
+                                        .frame(width: geo.size.width/4, height: geo.size.width/6)
                                         .cornerRadius(5)
                                         .foregroundColor(!didTap1 ? Color("icons-input"): Color("bubble-secondary"))
                                         .shadow(color: .gray, radius: 5, x: 3, y: 3)
@@ -64,7 +68,9 @@ struct DiagnosisView: View {
                                         .foregroundColor(.black)
                                 }
                             }
+                           
                             Spacer()
+                            
                             Button {
                                 //Button code here
                                 self.didTap2 = true
@@ -79,7 +85,7 @@ struct DiagnosisView: View {
                                 // Image
                                 ZStack{
                                     Rectangle()
-                                        .frame(width: geo.size.width/4, height: geo.size.width/4)
+                                        .frame(width: geo.size.width/4, height: geo.size.width/6)
                                         .cornerRadius(5)
                                         .foregroundColor(!didTap2 ? Color("icons-input"): Color("bubble-secondary"))
                                         .shadow(color: .gray, radius: 5, x: 3, y: 3)
@@ -88,6 +94,9 @@ struct DiagnosisView: View {
                                         .foregroundColor(.black)
                                 }
                             }
+                            
+                            Spacer()
+                            /*
                             Spacer()
                             Button {
                                 //Button code here
@@ -103,7 +112,7 @@ struct DiagnosisView: View {
                                 
                                 ZStack{
                                     Rectangle()
-                                        .frame(width: geo.size.width/4, height: geo.size.width/4)
+                                        .frame(width: geo.size.width/4, height: geo.size.width/6)
                                         .cornerRadius(5)
                                         .foregroundColor(!didTap3 ? Color("icons-input"): Color("bubble-secondary"))
                                         .shadow(color: .gray, radius: 5, x: 3, y: 3)
@@ -112,11 +121,13 @@ struct DiagnosisView: View {
                                         .foregroundColor(.black)
                                 }
                             }
+                             */
+                            
                         }
                         .padding(.bottom, 30)
                         
                         // Age Picker
-                        Text("Select age")
+                        Text(Constants.SelectAgeTitle)
                             .bold()
                         Picker("Age", selection: $agePicker){
                             Text("10-20").tag("10")
@@ -132,7 +143,7 @@ struct DiagnosisView: View {
                     }
                     // Enter Symptom
                     
-                    Text("What are your symptoms?")
+                    Text(Constants.SelectSymptomsTitle)
                         .bold()
                     
                     Button {
@@ -154,7 +165,7 @@ struct DiagnosisView: View {
                     
                     // Duration of symptoms
                     
-                    Text("Duration of Symptoms")
+                    Text(Constants.DurationOfSymptomsTitle)
                         .bold()
                     Picker("Age", selection: $durationOfSymptoms){
                         

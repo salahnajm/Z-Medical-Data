@@ -1,20 +1,20 @@
 //
-//  ZeusListCond.swift
-//  ZeusMedic
+//  ListCond.swift
+//  Medical App
 //
 //  Created by Salah Najm on 11/5/22.
 //
 
 import SwiftUI
 
-struct ZeusListCond: View {
+struct ListCond: View {
     
     var selectedBusiness:Business
     
     var body: some View {
         
         NavigationLink {
-            ZeusDetailView(selectedBusiness:selectedBusiness)
+            ItemDetailView(selectedBusiness:selectedBusiness)
             
         } label: {
             

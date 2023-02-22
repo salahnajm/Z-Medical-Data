@@ -1,6 +1,6 @@
 //
 //  SwiftUIView.swift
-//  ZeusMedic
+//  Medical App
 //
 //  Created by Salah Najm on 9/14/22.
 //

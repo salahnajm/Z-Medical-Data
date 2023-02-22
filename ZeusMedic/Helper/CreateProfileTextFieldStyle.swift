@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct createProfileTextFieldStyle: TextFieldStyle {
+struct CreateProfileTextFieldStyle: TextFieldStyle {
     
     func _body(configuration: TextField<Self._Label>) -> some View {
         

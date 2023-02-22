@@ -12,11 +12,10 @@ struct OnboardingView: View {
     
     private let blue = Color(red: 0/255, green: 130/255, blue: 167/255)
     private let turquoise = Color(red: 55/255, green: 197/255, blue: 192/255)
-
+    
     var body: some View {
         
         VStack {
-            // Tab view
             
             TabView(selection: $tabSelection) {
                 // First tab
@@ -34,25 +33,24 @@ struct OnboardingView: View {
                 .tag(0)
                 
                 // Second tab
-                    // First tab
+                // First tab
                 VStack (spacing: 20){
-                        Image("city1")
-                            .resizable()
-                            .scaledToFit()
+                    Image("city1")
+                        .resizable()
+                        .scaledToFit()
                     Text(Constants.OnBoardingPage2)
-                            .bold()
-                            .font(.title)
+                        .bold()
+                        .font(.title)
                     Text(Constants.OnBoardingPage2Explanation)
                         .multilineTextAlignment(.center)
-                        
-                    }
-                    .foregroundColor(.white)
-                    .tag(1)
+                    
+                }
+                .foregroundColor(.white)
+                .tag(1)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
             
-            // Button
-            
+            // Go to Next Step
             Button {
                 if tabSelection == 0 {
                     tabSelection = 1
@@ -63,7 +61,7 @@ struct OnboardingView: View {
                     // Request geolocation permission
                     model.requestGeolocationPermission()
                 }
-                    
+                
             } label: {
                 ZStack {
                     Rectangle()
@@ -80,7 +78,7 @@ struct OnboardingView: View {
             .accentColor(tabSelection==0 ? blue: turquoise)
             
         }
-    
+        
         .background(tabSelection == 0 ? blue : turquoise)
         
     }

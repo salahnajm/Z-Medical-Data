@@ -8,12 +8,15 @@ import SwiftUI
 
 @main
 struct ZeusMedicApp: App {
-
+    
+    var healthVM = HealthKitViewModel()
+    
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environmentObject(ZeusModel())
                 .environmentObject(DiagnosisModel())
+                .environmentObject(healthVM)
             
         }
     }

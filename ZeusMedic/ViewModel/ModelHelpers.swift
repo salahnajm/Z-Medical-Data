@@ -1,6 +1,6 @@
 //
 //  ModelHelpers.swift
-//  ZeusMedic
+//  Medical App
 //
 //  Created by Salah Najm on 9/26/22.
 //

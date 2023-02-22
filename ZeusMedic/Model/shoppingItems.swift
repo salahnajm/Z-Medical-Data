@@ -1,6 +1,6 @@
 //
 //  shoppingItems.swift
-//  ZeusMedic
+//  Medical App
 //
 //  Created by Salah Najm on 10/5/22.
 //

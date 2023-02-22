@@ -1,6 +1,6 @@
 //
 //  ZeusMapViewSimple.swift
-//  ZeusMedic
+//  Medical App
 //
 //  Created by Salah Najm on 9/22/22.
 //

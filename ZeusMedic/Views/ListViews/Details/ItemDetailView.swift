@@ -1,6 +1,6 @@
 //
-//  businessDetailView.swift
-//  ZeusMedic
+//  ItemDetailView.swift
+//  Medical App
 //
 //  Created by Salah Najm on 9/17/22.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct ZeusDetailView: View {
+struct ItemDetailView: View {
     
     @EnvironmentObject var model:ZeusModel
     var selectedBusiness:Business

@@ -1,6 +1,6 @@
 //
 //  TagLineView.swift
-//  ZeusMedic
+//  Medical App
 //
 //  Created by Salah Najm on 10/5/22.
 //
@@ -11,13 +11,13 @@ struct TopBarView: View {
     
     @EnvironmentObject var model:ZeusModel
     @State var cartViewSelected = false
-    @State var showFormView = false
+    @State var isFormViewShowing = false
     
     var body: some View {
         
         HStack {
             Button(action: {
-               showFormView = true
+                isFormViewShowing = true
                 
             }) {
                 Image("menu")
@@ -55,8 +55,8 @@ struct TopBarView: View {
         }
         .padding(.horizontal)
         .background(Color("background"))
-        .sheet(isPresented: $showFormView) {
-            InformationForm()
+        .sheet(isPresented: $isFormViewShowing) {
+            InformationForm(isFormViewShowing:$isFormViewShowing)
         }
     }
 }

@@ -1,6 +1,6 @@
 //
 //  Business.swift
-//  ZeusMedic
+//  Medical App
 //
 //  Created by Salah Najm on 11/3/22.
 //

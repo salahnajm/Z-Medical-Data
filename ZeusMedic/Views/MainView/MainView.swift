@@ -1,6 +1,6 @@
 //
 //  MainView.swift
-//  ZeusMedic
+//  Medical App
 //
 //  Created by Salah Najm on 9/9/22.
 //
@@ -14,8 +14,7 @@ struct MainView: View {
     @State private var searchShopping = ""
     
     var body: some View {
-        
-        NavigationView{
+  
             ZStack {
                 Color("background")
                     .ignoresSafeArea(edges: [.top, .bottom])
@@ -30,14 +29,12 @@ struct MainView: View {
                     
                     Image(systemName: "bolt.heart.fill")
                         .resizable()
-                        .frame(height:170)
-                        .aspectRatio(1, contentMode: .fit)
-                    //     .scaledToFit()
+                        .frame(width: 170, height:170)
+                        .scaledToFit()
                     
                     Spacer()
-                    //Text Field
-                    
-                    Text("Featured Products")
+                   
+                    Text(Constants.FeaturedProductsTitle)
                         .font(Font.title2)
                         .padding(.horizontal)
                     
@@ -77,8 +74,7 @@ struct MainView: View {
                     
                 }
             }
-        }
-        
+       
     }
 }
 

@@ -23,7 +23,7 @@ struct MainCategoryView: View {
                     
                     NavigationLink(tag:item, selection: $selectedCategory) {
                         //   CategoryListView(selectedCategory: $selectedCategory)
-                        ZeusListView(selectedCategory: $selectedCategory)
+                        MedicalListView(selectedCategory: $selectedCategory)
                     }
                     
                 label: {

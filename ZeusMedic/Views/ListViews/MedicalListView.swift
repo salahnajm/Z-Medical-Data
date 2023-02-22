@@ -1,12 +1,12 @@
-//  ZeusListView.swift
-//  ZeusMedic
+//  MedicalListView.swift
+//  Medical App
 //
 //  Created by Salah Najm on 9/17/22.
 //
 
 import SwiftUI
 
-struct ZeusListView: View {
+struct MedicalListView: View {
     
     @Binding var selectedCategory:String?
     
@@ -22,7 +22,7 @@ struct ZeusListView: View {
                 ForEach(model.restaurants) { restaurant in
                     
                     if selectedCategory == nil {
-                        ZeusListCond(selectedBusiness: restaurant)
+                        ListCond(selectedBusiness: restaurant)
                     }
                     else {
                         
@@ -32,7 +32,7 @@ struct ZeusListView: View {
                             
                             if t.title == selectedCategory
                             {
-                                ZeusListCond(selectedBusiness: restaurant)
+                                ListCond(selectedBusiness: restaurant)
                                 
                             }
                             

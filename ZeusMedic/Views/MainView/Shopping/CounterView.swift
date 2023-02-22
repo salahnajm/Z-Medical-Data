@@ -1,6 +1,6 @@
 //
 //  CounterView.swift
-//  ZeusMedic
+//  Medical App
 //
 //  Created by Salah Najm on 10/6/22.
 //
