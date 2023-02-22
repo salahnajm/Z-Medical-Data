@@ -18,9 +18,11 @@ struct BoxButtonZM: View {
                 .frame(height:48)
                 .cornerRadius(10)
                 .shadow(color: .gray, radius: 5, x: 3, y: 3)
-            Text(label)
-                .foregroundColor(.black)
-            
+                .overlay {
+                    Text(label)
+                        .foregroundColor(.black)
+                        .font(Font.smallText)
+                }
         }
     }
 }

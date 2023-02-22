@@ -35,6 +35,7 @@ struct ZeusMapView: UIViewRepresentable {
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
             
+        
         uiView.removeAnnotations(uiView.annotations)
         annotation.removeAll()
         

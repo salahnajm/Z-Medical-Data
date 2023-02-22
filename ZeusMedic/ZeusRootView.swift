@@ -10,7 +10,7 @@ import SwiftUI
 struct RootView: View {
     
     @EnvironmentObject var model:ZeusModel
-    
+    @State var selectedCategory: String?
     @State var selectedTab: Tabs = .main
     //  @State var isOnBoarding = !AuthViewModel.isUserLoggedIn()
     
@@ -24,26 +24,25 @@ struct RootView: View {
         else if model.authorizationState == .authorizedWhenInUse || model.authorizationState == .authorizedAlways {
             
             // Show HomeView
-            
-          
-            
             TopBarView()
-            
-            ZStack {
-                Color("background")
-                    .ignoresSafeArea(edges: [.top, .bottom])
-            
-                switch selectedTab {
-                case .main:
-                    MainView()
-                case .list:
-                    ZeusListView()
-                case .categories:
-                    ZeusCategoryView()
-                case .diagnosis:
-                    DiagnosisView(genderPicker: "", agePicker: "", durationOfSymptoms: "")
-                case .news:
-                    NewsView()
+            NavigationView{
+                ZStack {
+                    Color("background")
+                        .ignoresSafeArea(edges: [.top, .bottom])
+                    
+                    switch selectedTab {
+                    case .main:
+                        MainView()
+                    case .list:
+                        ZeusListView(selectedCategory: $selectedCategory)
+                    case .categories:
+                        ZeusCategoryView()
+                    case .diagnosis:
+                        DiagnosisView(genderPicker: "", agePicker: "", durationOfSymptoms: "")
+                    case .news:
+                        NewsView()
+                    }
+                    
                 }
             }
             Spacer()
@@ -69,10 +68,10 @@ struct RootView: View {
     }
 }
 
-struct RootView_Previews: PreviewProvider {
-    static var previews: some View {
-        RootView()
-        
-    }
-    
-}
+//struct RootView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RootView()
+//        
+//    }
+//    
+//}

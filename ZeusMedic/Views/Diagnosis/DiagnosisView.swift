@@ -10,7 +10,6 @@ import SwiftUI
 struct DiagnosisView: View {
     
     @EnvironmentObject var model:ZeusModel
-    //  @EnvironmentObject var conditions:Conditions
     
     @State var genderPicker:String
     @State var agePicker:String
@@ -28,7 +27,7 @@ struct DiagnosisView: View {
             VStack(alignment: .leading, spacing: 0) {
                 
                 Text("Diagnose Me")
-                    .font(Font.pageTitle)
+                    .font(Font.chatHeading)
                     .bold()
                     .padding(.bottom, 30)
                 
@@ -131,7 +130,7 @@ struct DiagnosisView: View {
                             .padding(.horizontal)
                             .padding(.bottom, 30)
                     }
-                    // Enter Main Symptom
+                    // Enter Symptom
                     
                     Text("What are your symptoms?")
                         .bold()
@@ -150,7 +149,7 @@ struct DiagnosisView: View {
                         }
                         
                     }.sheet(isPresented: $pickSymptomsSheet) {
-                        SymptomsPickerView()
+                        SymptomsPickerView(gender:$genderPicker)
                     } .padding(.bottom, 30)
                     
                     // Duration of symptoms
@@ -167,7 +166,6 @@ struct DiagnosisView: View {
                     }.frame(height: 30)
                         .pickerStyle(SegmentedPickerStyle())
                         .shadow(color: .gray, radius: 5, x: 3, y: 3)
-                    //  .scaledToFit()
                         .padding(.horizontal)
                         .padding(.bottom, 30)
                     

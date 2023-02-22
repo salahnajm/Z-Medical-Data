@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct ZeusMedicApp: App {
+
     var body: some Scene {
         WindowGroup {
             RootView()

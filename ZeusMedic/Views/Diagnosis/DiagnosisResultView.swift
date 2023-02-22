@@ -43,8 +43,8 @@ struct DiagnosisResultView: View {
     }
 }
 
-struct DiagnosisResultView_Previews: PreviewProvider {
-    static var previews: some View {
-        DiagnosisResultView()
-    }
-}
+//struct DiagnosisResultView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DiagnosisResultView()
+//    }
+//}

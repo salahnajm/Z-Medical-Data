@@ -8,6 +8,8 @@
 import Foundation
 
 class Conditions:Identifiable, Decodable, Comparable {
+    
+    //To sort results in order
    
     static func == (lhs: Conditions, rhs: Conditions) -> Bool {
     

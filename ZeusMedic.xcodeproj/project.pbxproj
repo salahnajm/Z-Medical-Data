@@ -16,16 +16,15 @@
 		100D680B28CC4300009B17DC /* ButtonZM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D680A28CC4300009B17DC /* ButtonZM.swift */; };
 		100D680F28CC4876009B17DC /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D680E28CC4876009B17DC /* NewsView.swift */; };
 		10143AD628D2D5EA003440D8 /* TextFieldZM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10143AD528D2D5EA003440D8 /* TextFieldZM.swift */; };
-		10315DCE28D589E900E089F2 /* doctors.json in Resources */ = {isa = PBXBuildFile; fileRef = 10315DCD28D589E800E089F2 /* doctors.json */; };
-		10315DD028D58A2900E089F2 /* Zeus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DCF28D58A2800E089F2 /* Zeus.swift */; };
 		10315DD328D58BDC00E089F2 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DD228D58BDC00E089F2 /* DataService.swift */; };
 		10315DD528D58D1300E089F2 /* ZeusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DD428D58D1200E089F2 /* ZeusModel.swift */; };
-		10315DD728D67B2E00E089F2 /* tableAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DD628D67B2E00E089F2 /* tableAdmin.swift */; };
-		10315DD928D67C0A00E089F2 /* tableAdmin.json in Resources */ = {isa = PBXBuildFile; fileRef = 10315DD828D67C0A00E089F2 /* tableAdmin.json */; };
 		10315DDC28D6844700E089F2 /* ZeusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DDB28D6844700E089F2 /* ZeusDetailView.swift */; };
 		10315DDE28D684CD00E089F2 /* ZeusListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DDD28D684CD00E089F2 /* ZeusListView.swift */; };
 		10315DE228D6B02600E089F2 /* ZeusMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10315DE128D6B02600E089F2 /* ZeusMapView.swift */; };
-		1045DFA028E51A9A008DDE25 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1045DF9F28E51A9A008DDE25 /* CategoryListView.swift */; };
+		1034BE112914C90200FF4758 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1034BE102914C90200FF4758 /* Constants.swift */; };
+		1034BE132914C99A00FF4758 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1034BE122914C99A00FF4758 /* Business.swift */; };
+		1034BE162916258100FF4758 /* ZeusListCond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1034BE152916258100FF4758 /* ZeusListCond.swift */; };
+		1034BE18291632F500FF4758 /* DetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1034BE17291632F500FF4758 /* DetailHeader.swift */; };
 		1045DFA228E65E3D008DDE25 /* MultiSelectSymptomsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1045DFA128E65E3D008DDE25 /* MultiSelectSymptomsPicker.swift */; };
 		1045DFA428E67D8F008DDE25 /* DiagnosisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1045DFA328E67D8F008DDE25 /* DiagnosisModel.swift */; };
 		1045DFA828E6B481008DDE25 /* Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1045DFA728E6B481008DDE25 /* Conditions.swift */; };
@@ -45,8 +44,6 @@
 		1045E02E28EE74EE008DDE25 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1045E02D28EE74EE008DDE25 /* StarRating.swift */; };
 		1045E03028EF9D24008DDE25 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1045E02F28EF9D24008DDE25 /* CounterView.swift */; };
 		104C18AC28E29D6100504E6A /* ModelHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C18AB28E29D6100504E6A /* ModelHelpers.swift */; };
-		104C18AF28E33D0B00504E6A /* DataZM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C18AE28E33D0B00504E6A /* DataZM.swift */; };
-		10636E6828FA308800E3CFAD /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = 10636E6728FA308800E3CFAD /* RichText */; };
 		10BF89C9290B91A100851123 /* BoxButtonZM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BF89C8290B91A100851123 /* BoxButtonZM.swift */; };
 		10E9AC3428D967D700AF1465 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC3328D967D700AF1465 /* CustomTabBar.swift */; };
 		10E9AC3628D9683800AF1465 /* ZeusRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9AC3528D9683800AF1465 /* ZeusRootView.swift */; };
@@ -73,16 +70,15 @@
 		100D680A28CC4300009B17DC /* ButtonZM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonZM.swift; sourceTree = "<group>"; };
 		100D680E28CC4876009B17DC /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		10143AD528D2D5EA003440D8 /* TextFieldZM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldZM.swift; sourceTree = "<group>"; };
-		10315DCD28D589E800E089F2 /* doctors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doctors.json; sourceTree = "<group>"; };
-		10315DCF28D58A2800E089F2 /* Zeus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zeus.swift; sourceTree = "<group>"; };
 		10315DD228D58BDC00E089F2 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		10315DD428D58D1200E089F2 /* ZeusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusModel.swift; sourceTree = "<group>"; };
-		10315DD628D67B2E00E089F2 /* tableAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableAdmin.swift; sourceTree = "<group>"; };
-		10315DD828D67C0A00E089F2 /* tableAdmin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tableAdmin.json; sourceTree = "<group>"; };
 		10315DDB28D6844700E089F2 /* ZeusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusDetailView.swift; sourceTree = "<group>"; };
 		10315DDD28D684CD00E089F2 /* ZeusListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusListView.swift; sourceTree = "<group>"; };
 		10315DE128D6B02600E089F2 /* ZeusMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusMapView.swift; sourceTree = "<group>"; };
-		1045DF9F28E51A9A008DDE25 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		1034BE102914C90200FF4758 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1034BE122914C99A00FF4758 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		1034BE152916258100FF4758 /* ZeusListCond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusListCond.swift; sourceTree = "<group>"; };
+		1034BE17291632F500FF4758 /* DetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeader.swift; sourceTree = "<group>"; };
 		1045DFA128E65E3D008DDE25 /* MultiSelectSymptomsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectSymptomsPicker.swift; sourceTree = "<group>"; };
 		1045DFA328E67D8F008DDE25 /* DiagnosisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisModel.swift; sourceTree = "<group>"; };
 		1045DFA728E6B481008DDE25 /* Conditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conditions.swift; sourceTree = "<group>"; };
@@ -102,7 +98,6 @@
 		1045E02D28EE74EE008DDE25 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		1045E02F28EF9D24008DDE25 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		104C18AB28E29D6100504E6A /* ModelHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHelpers.swift; sourceTree = "<group>"; };
-		104C18AE28E33D0B00504E6A /* DataZM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataZM.swift; sourceTree = "<group>"; };
 		10BF89C8290B91A100851123 /* BoxButtonZM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxButtonZM.swift; sourceTree = "<group>"; };
 		10E9AC3328D967D700AF1465 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		10E9AC3528D9683800AF1465 /* ZeusRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusRootView.swift; sourceTree = "<group>"; };
@@ -123,7 +118,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10636E6828FA308800E3CFAD /* RichText in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,11 +144,11 @@
 			isa = PBXGroup;
 			children = (
 				100D67F328CC211E009B17DC /* ZeusMedicApp.swift */,
+				10E9AC3528D9683800AF1465 /* ZeusRootView.swift */,
 				10E9AC6428DE16E600AF1465 /* OnBoarding */,
 				100D680228CC2DAC009B17DC /* Views */,
 				100D680328CC2DB2009B17DC /* ViewModel */,
 				10315DD128D58BC500E089F2 /* Data Service */,
-				104C18AD28E33CF800504E6A /* Data */,
 				100D680428CC2DBD009B17DC /* Model */,
 				10E9AC4328D9693C00AF1465 /* Helper */,
 				1045E02628EDDD77008DDE25 /* json data files */,
@@ -176,17 +170,14 @@
 		100D680228CC2DAC009B17DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1034BE14291564E300FF4758 /* CategoryView */,
+				10BF89CB290B97E700851123 /* ListViews */,
+				10315DDA28D6842400E089F2 /* Details */,
 				10BF89CA290B933C00851123 /* Diagnosis */,
 				1045DFCB28EC8563008DDE25 /* Shopping */,
-				10E9AC3528D9683800AF1465 /* ZeusRootView.swift */,
 				100D680528CC3360009B17DC /* ZeusTabView.swift */,
 				100D67F528CC211E009B17DC /* MainView.swift */,
-				10315DDD28D684CD00E089F2 /* ZeusListView.swift */,
 				100D680E28CC4876009B17DC /* NewsView.swift */,
-				10E9AC5A28DB053C00AF1465 /* ZeusCategoryView.swift */,
-				1045DF9F28E51A9A008DDE25 /* CategoryListView.swift */,
-				1045DFAB28E6BB89008DDE25 /* DiagnosisResultView.swift */,
-				10315DDA28D6842400E089F2 /* Details */,
 				10E9AC6F28E0527300AF1465 /* TabBar */,
 				100D680928CC42DB009B17DC /* Reusable */,
 			);
@@ -206,10 +197,9 @@
 		100D680428CC2DBD009B17DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				10315DCF28D58A2800E089F2 /* Zeus.swift */,
-				10315DD628D67B2E00E089F2 /* tableAdmin.swift */,
 				1045DFA728E6B481008DDE25 /* Conditions.swift */,
 				1045E02228EDD530008DDE25 /* shoppingItems.swift */,
+				1034BE122914C99A00FF4758 /* Business.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -237,10 +227,19 @@
 			isa = PBXGroup;
 			children = (
 				10315DDB28D6844700E089F2 /* ZeusDetailView.swift */,
+				1034BE17291632F500FF4758 /* DetailHeader.swift */,
 				10315DE128D6B02600E089F2 /* ZeusMapView.swift */,
 				10E9AC5C28DC354C00AF1465 /* ZeusMapViewSimple.swift */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		1034BE14291564E300FF4758 /* CategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				10E9AC5A28DB053C00AF1465 /* ZeusCategoryView.swift */,
+			);
+			path = CategoryView;
 			sourceTree = "<group>";
 		};
 		1045DFCB28EC8563008DDE25 /* Shopping */ = {
@@ -263,19 +262,9 @@
 			isa = PBXGroup;
 			children = (
 				1045DFAD28E6CD18008DDE25 /* conditions.json */,
-				10315DD828D67C0A00E089F2 /* tableAdmin.json */,
 				1045E02428EDDD72008DDE25 /* shoppingData.json */,
-				10315DCD28D589E800E089F2 /* doctors.json */,
 			);
 			path = "json data files";
-			sourceTree = "<group>";
-		};
-		104C18AD28E33CF800504E6A /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				104C18AE28E33D0B00504E6A /* DataZM.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		10BF89CA290B933C00851123 /* Diagnosis */ = {
@@ -284,13 +273,24 @@
 				100D680728CC38BD009B17DC /* DiagnosisView.swift */,
 				10E9AC6028DD508200AF1465 /* SymptomsPickerView.swift */,
 				1045DFA128E65E3D008DDE25 /* MultiSelectSymptomsPicker.swift */,
+				1045DFAB28E6BB89008DDE25 /* DiagnosisResultView.swift */,
 			);
 			path = Diagnosis;
+			sourceTree = "<group>";
+		};
+		10BF89CB290B97E700851123 /* ListViews */ = {
+			isa = PBXGroup;
+			children = (
+				10315DDD28D684CD00E089F2 /* ZeusListView.swift */,
+				1034BE152916258100FF4758 /* ZeusListCond.swift */,
+			);
+			path = ListViews;
 			sourceTree = "<group>";
 		};
 		10E9AC4328D9693C00AF1465 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				1034BE102914C90200FF4758 /* Constants.swift */,
 				10E9AC3B28D9690C00AF1465 /* Fonts.swift */,
 				10E9AC3F28D9691200AF1465 /* OnBoardingButtonStyle.swift */,
 				10E9AC3D28D9691000AF1465 /* CreateProfileTextFieldStyle.swift */,
@@ -335,7 +335,6 @@
 			);
 			name = ZeusMedic;
 			packageProductDependencies = (
-				10636E6728FA308800E3CFAD /* RichText */,
 			);
 			productName = ZeusMedic;
 			productReference = 100D67F028CC211E009B17DC /* ZeusMedic.app */;
@@ -384,8 +383,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1045DFD928EC86A3008DDE25 /* ShoppingAssets.xcassets in Resources */,
-				10315DD928D67C0A00E089F2 /* tableAdmin.json in Resources */,
-				10315DCE28D589E900E089F2 /* doctors.json in Resources */,
 				1045E02528EDDD72008DDE25 /* shoppingData.json in Resources */,
 				100D67FB28CC2120009B17DC /* Preview Assets.xcassets in Resources */,
 				1045DFAE28E6CD18008DDE25 /* conditions.json in Resources */,
@@ -406,6 +403,7 @@
 				10143AD628D2D5EA003440D8 /* TextFieldZM.swift in Sources */,
 				10315DDE28D684CD00E089F2 /* ZeusListView.swift in Sources */,
 				10E9AC6A28DEB74900AF1465 /* LocationDeniedView.swift in Sources */,
+				1034BE18291632F500FF4758 /* DetailHeader.swift in Sources */,
 				1045E02828EE1B6A008DDE25 /* DescriptionView.swift in Sources */,
 				1045DFA828E6B481008DDE25 /* Conditions.swift in Sources */,
 				10E9AC3628D9683800AF1465 /* ZeusRootView.swift in Sources */,
@@ -413,11 +411,8 @@
 				1045DFAC28E6BB89008DDE25 /* DiagnosisResultView.swift in Sources */,
 				1045DFD128EC85E4008DDE25 /* ScanAndSearchView.swift in Sources */,
 				10E9AC3828D9683C00AF1465 /* TabBarButton.swift in Sources */,
-				104C18AF28E33D0B00504E6A /* DataZM.swift in Sources */,
 				1045DFA228E65E3D008DDE25 /* MultiSelectSymptomsPicker.swift in Sources */,
-				10315DD728D67B2E00E089F2 /* tableAdmin.swift in Sources */,
 				1045E02A28EE1DD8008DDE25 /* TopBarView.swift in Sources */,
-				10315DD028D58A2900E089F2 /* Zeus.swift in Sources */,
 				10315DD528D58D1300E089F2 /* ZeusModel.swift in Sources */,
 				10E9AC3428D967D700AF1465 /* CustomTabBar.swift in Sources */,
 				10E9AC6628DE16F800AF1465 /* OnboardingView.swift in Sources */,
@@ -425,19 +420,21 @@
 				104C18AC28E29D6100504E6A /* ModelHelpers.swift in Sources */,
 				100D67F628CC211E009B17DC /* MainView.swift in Sources */,
 				1045DFCA28EC7EF2008DDE25 /* ShoppingListView.swift in Sources */,
+				1034BE162916258100FF4758 /* ZeusListCond.swift in Sources */,
 				100D67F428CC211E009B17DC /* ZeusMedicApp.swift in Sources */,
 				10315DE228D6B02600E089F2 /* ZeusMapView.swift in Sources */,
 				1045E02E28EE74EE008DDE25 /* StarRating.swift in Sources */,
 				1045DFD328EC860A008DDE25 /* CategoryView.swift in Sources */,
 				10E9AC4028D9691200AF1465 /* OnBoardingButtonStyle.swift in Sources */,
+				1034BE112914C90200FF4758 /* Constants.swift in Sources */,
 				100D680F28CC4876009B17DC /* NewsView.swift in Sources */,
 				10E9AC6128DD508200AF1465 /* SymptomsPickerView.swift in Sources */,
+				1034BE132914C99A00FF4758 /* Business.swift in Sources */,
 				10315DDC28D6844700E089F2 /* ZeusDetailView.swift in Sources */,
 				100D680828CC38BD009B17DC /* DiagnosisView.swift in Sources */,
 				10E9AC3E28D9691000AF1465 /* CreateProfileTextFieldStyle.swift in Sources */,
 				10E9AC3C28D9690C00AF1465 /* Fonts.swift in Sources */,
 				1045E02328EDD530008DDE25 /* shoppingItems.swift in Sources */,
-				1045DFA028E51A9A008DDE25 /* CategoryListView.swift in Sources */,
 				1045E02C28EE2EEE008DDE25 /* CartView.swift in Sources */,
 				100D680628CC3360009B17DC /* ZeusTabView.swift in Sources */,
 				1045E03028EF9D24008DDE25 /* CounterView.swift in Sources */,
@@ -670,14 +667,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		10636E6728FA308800E3CFAD /* RichText */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 10636E6628FA308800E3CFAD /* XCRemoteSwiftPackageReference "RichText" */;
-			productName = RichText;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 100D67E828CC211E009B17DC /* Project object */;
 }

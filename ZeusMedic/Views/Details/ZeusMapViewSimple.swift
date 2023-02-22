@@ -23,10 +23,7 @@ struct ZeusMapViewSimple: View {
     )
     
     var body: some View {
-//        
-//        Map(coordinateRegion: $region, annotationItems: Items) {
-//        MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: 37.789467, longitude: -124.415772) ) {
-//            
+         
             Text("XX")
         }
  

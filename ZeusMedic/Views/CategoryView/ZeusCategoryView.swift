@@ -11,67 +11,48 @@
 import SwiftUI
 
 struct ZeusCategoryView: View {
-    let items: [Bookmark] = [.astheticsGroup, .equipmentGroup, .dentalGroup, .alternativeGroup, .medicalHelp, .specialtyGroup]
-    
+
     @EnvironmentObject var model:ZeusModel
     
     @State var selectedCategory: String?
     
     var body: some View {
-        //
-        
-        NavigationView {
-            
-            List{
-                
-                ForEach(items) { menuItem in
+     
+            ScrollView{
+                VStack(alignment:.leading){
+                    ForEach(model.businessCategories.sorted(), id:\.self) { item in
                     
-                    Section(header:
-                                Text("")
-                    ) {
-                        DisclosureGroup {
-                            
-                            OutlineGroup(menuItem.items ?? [Bookmark](), children: \.items) { row in
-                                
-                                NavigationLink(tag:row.name, selection:$selectedCategory) {
-                                    CategoryListView(selectedCategory: $selectedCategory)
-                                }
-                                
-                            label: {
-                                
-                                HStack{
-                                    Text(row.name)
-                                        .font(Font.body)
-                                    Spacer()
-                                }
-                                
-                                .padding()
-                                .background(Color("create-profile-border"))
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                                .foregroundColor(Color("text-primary"))
-                                //   .listRowBackground(selectedCategory == row ? Color("bubble-primary") : Color(UIColor.systemGroupedBackground) )
-                            }
-                            }
-                        } label: {
-                            //Expand. Title of each section
-                            Text(menuItem.name)
-                                .font(.title3)
-                            
-                        }
-                        
+                    NavigationLink(tag:item, selection: $selectedCategory) {
+                        //   CategoryListView(selectedCategory: $selectedCategory)
+                        ZeusListView(selectedCategory: $selectedCategory)
                     }
+                    
+                label: {
+                    
+                    ZStack{
+                        Rectangle()
+                            .frame(height:48)
+                            .cornerRadius(10)
+                            .foregroundColor(Color(red: 55/255, green: 197/255, blue: 192/255))
+                            .padding(.horizontal)
+                        Text(item)
+                            .font(Font.body)
+                    }
+                    .foregroundColor(.black)
+
+                    
                 }
+                
+                    
+                }
+                
             }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
         }
+        
     }
+    
 }
-//struct ZeusCategory_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ZeusCategoryView()
-//    }
-//}
+
 
 
 /*

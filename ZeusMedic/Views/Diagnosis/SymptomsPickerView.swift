@@ -9,8 +9,9 @@ import SwiftUI
 
 struct SymptomsPickerView: View {
     
+    @Binding var gender:String
+    
     @EnvironmentObject var diagnosis:DiagnosisModel
- //   @EnvironmentObject var model:ZeusModel
     @Environment(\.dismiss) private var dismiss
     
     @State var symptomsResult:[String]?
@@ -55,8 +56,11 @@ struct SymptomsPickerView: View {
                     
                     Divider()
                     
-                    MultiSelectSymptomsPicker(symptomCategoryModel: diagnosis.femaleSymptoms, icon:"staroflife.circle")
-                    Divider()
+                    if gender == "Female" {
+                        MultiSelectSymptomsPicker(symptomCategoryModel: diagnosis.femaleSymptoms, icon:"staroflife.circle")
+                        Divider()
+                    }
+                    
                 }
                 Group {
                     MultiSelectSymptomsPicker(symptomCategoryModel: diagnosis.musculoskeletalSymptoms, icon:"staroflife")

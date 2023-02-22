@@ -22,18 +22,15 @@ struct CustomTabBar: View {
     @Binding var selectedTab:Tabs
     
     var body: some View {
-        
-        
+       
         ZStack{
         Rectangle()
                 .foregroundColor(.white)
                 .shadow(color: (Color("date-pill")), radius: 5, x: 0, y: -3)
                 .ignoresSafeArea()
             
-            
         HStack(alignment:.center){
             
-           
             // MainView
             
             Button {

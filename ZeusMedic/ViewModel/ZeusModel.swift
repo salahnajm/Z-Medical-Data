@@ -9,30 +9,34 @@ import Foundation
 import MapKit
 
 class ZeusModel:  NSObject, CLLocationManagerDelegate, ObservableObject {
-    
     // Set garantees unique values
+      
+    //Yelp.
+    //Create an array of categories once we retreive the data from Yelp
+    @Published var businessCategories = Set<String>()
+    @Published var sights = [Business]()
+    //Yelp data into restaurants and sights?
+    @Published var restaurants = [Business]()
+       
+    //Location
+    var locationManager = CLLocationManager()
+    @Published var authorizationState = CLAuthorizationStatus.notDetermined
+    @Published var userLocation:CLLocation?
+    // Set myLocation as a CLLocation
+    var myLocation: CLLocation!
+    
+    //Shopping
+    @Published var orders = [cartItems]()
+    @Published var shopping = [shoppingItems]()
+    @Published var totalPrice:Double = 0
+    
+    //Diagnosis
+    @Published var conditions = [Conditions]()
     @Published var selectedSymptoms = Set<String>()
     @Published var selectedSymptomsFromPicker = Set<String>()
     
-    @Published var totalPrice:Double = 0
-    
-    @Published var categories2 = Set<String>()
     @Published var selectedCategory: String?
-    
-    @Published var userLocation:CLLocation?
-    
-    @Published var doctors = [Zeus]()
-    @Published var tableZeus = [tableAdmin]()
-    @Published var conditions = [Conditions]()
-    @Published var shopping = [shoppingItems]()
-    
-    @Published var orders = [cartItems]()
-    
-    var locationManager = CLLocationManager()
-    @Published var authorizationState = CLAuthorizationStatus.notDetermined
-    
-    // Set myLocation as a CLLocation
-    var myLocation: CLLocation!
+  
     
     override init() {
         super.init()
@@ -42,13 +46,9 @@ class ZeusModel:  NSObject, CLLocationManagerDelegate, ObservableObject {
         
         let service = DataService()
         
-        self.doctors = service.getLocalData()
-        self.tableZeus = service.getLocalData2()
         self.conditions = service.getLocalData3()
         self.shopping = service.getLocalData4()
-        
-        //     self.categories2 = Set(self.tableZeus.map { r in return r.categories})
-        self.categories2.update(with: "All Recipes")
+      
     }
     
     func requestGeolocationPermission() {
@@ -56,7 +56,8 @@ class ZeusModel:  NSObject, CLLocationManagerDelegate, ObservableObject {
         locationManager.requestWhenInUseAuthorization()
     }
     
-    // MARK: Location Manager Delegate Methods
+    // MARK: - Location
+    //Manager Delegate Methods
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
         authorizationState = locationManager.authorizationStatus
@@ -83,34 +84,179 @@ class ZeusModel:  NSObject, CLLocationManagerDelegate, ObservableObject {
         
         if userLocation != nil {
             
+            getBusinesses(category: Constants.restaurantsKey, location: userLocation!)
+            //Need two calls. for the offset of 50 (so first call gets first 50, second call gets next 50 businesses)
+            getBusinesses2(category: Constants.restaurantsKey, location: userLocation!)
+            
             let location = locations[locations.count - 1]
             self.myLocation = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             
-            // We have a location
-            
-            // Sorted data here. steps 1) decode data, 2) have a variable in the array (tableZeus) that represents distance, 3) wait until I have a user location, 4) then sorted data after I have a user location
-            // distance is a variable in tableAdmin. After getting user location created a function to calculate distance
-            
-            for i in self.tableZeus {
-                i.distance = i.location.distance(from: myLocation!)
-            }
-            
-            // sort data after calculating distance
-            self.tableZeus.sort { (b1, b2) -> Bool in
-                return b1.distance ?? 0  < b2.distance ?? 0
-            }
-            
+
             // Stop requesting location after we get it once (if we need it once)
             locationManager.stopUpdatingLocation()
         }
     }
     
-    //TODO: calculator to score diagnosis results
+    // MARK: - Yelp Model
+    
+    func getBusinesses(category: String, location:CLLocation) {
+        
+        // Create URL
+        var urlComponents = URLComponents(string: Constants.apiUrl)
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "latitude", value: String(location.coordinate.latitude)),
+            URLQueryItem(name: "longitude", value: String(location.coordinate.longitude)),
+            URLQueryItem(name: "categories", value: category),
+            URLQueryItem(name: "limit", value: Constants.value ),
+           // URLQueryItem(name: "offset", value: "250" )
+        ]
+        // Create URL request
+        let url = urlComponents?.url
+        
+        if let url = url {
+            
+            var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10.0)
+            
+            // Customize request
+            request.httpMethod = "GET"
+            request.addValue("Bearer \(Constants.apiKey)", forHTTPHeaderField: "Authorization")
+            
+            // Get URL session
+            let session = URLSession.shared
+            
+            // Create data task
+            let dataTask = session.dataTask(with: request) { (data, response, error) in
+                if error == nil && data != nil {
+                    
+                    // Start data task
+                    do {
+                        // parse JSON
+                        let decoder = JSONDecoder()
+                        let result = try decoder.decode(BusinessSearch.self, from: data!)
+                        
+                        // Sort businesses. So we have to create an array to be able to sort the data
+                        var businesses = result.businesses
+                        businesses.sort { (b1, b2) -> Bool in
+                            return b1.distance ?? 0 < b2.distance ?? 0
+                        }
+                        
+                        // Call function to get image data here
+                        for b in businesses {
+                            b.getImageData()
+                            
+                            
+                            DispatchQueue.main.async {
+                            // get all the alias names from the business categories
+                            for c in b.categories! {
+                                if c.title != "" {
+                                        self.businessCategories.insert(c.title!)
+
+                                    }
+                                }
+                            }
+                        }
+                       
+                        // When assigning a published property from a background thread, should always dispatch to main queue
+                        DispatchQueue.main.async {
+                            
+                         //self.restaurants = businesses
+                            self.restaurants.append(contentsOf: businesses)
+                        }
+                    }
+                    catch {
+                        print(error)
+                    }
+                }
+            }
+            
+            dataTask.resume()
+        }
+    }
+    
+    func getBusinesses2(category: String, location:CLLocation) {
+        
+        // Create URL
+        var urlComponents = URLComponents(string: Constants.apiUrl)
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "latitude", value: String(location.coordinate.latitude)),
+            URLQueryItem(name: "longitude", value: String(location.coordinate.longitude)),
+            URLQueryItem(name: "categories", value: category),
+            URLQueryItem(name: "limit", value: Constants.value ),
+            URLQueryItem(name: "offset", value: "50" )
+        ]
+        // Create URL request
+        let url = urlComponents?.url
+        
+        if let url = url {
+            
+            var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10.0)
+            
+            // Customize request
+            request.httpMethod = "GET"
+            request.addValue("Bearer \(Constants.apiKey)", forHTTPHeaderField: "Authorization")
+            
+            // Get URL session
+            let session = URLSession.shared
+            
+            // Create data task
+            let dataTask = session.dataTask(with: request) { (data, response, error) in
+                if error == nil && data != nil {
+                    
+                    // Start data task
+                    do {
+                        // parse JSON
+                        let decoder = JSONDecoder()
+                        let result = try decoder.decode(BusinessSearch.self, from: data!)
+                        
+                        // Sort businesses. So we have to create an array to be able to sort the data
+                        var businesses = result.businesses
+                        businesses.sort { (b1, b2) -> Bool in
+                            return b1.distance ?? 0 < b2.distance ?? 0
+                        }
+                        
+                        // Call function to get image data here
+                        for b in businesses {
+                            b.getImageData()
+                            
+                            
+                            DispatchQueue.main.async {
+                            // get all the alias names from the business categories
+                            for c in b.categories! {
+                                if c.title != "" {
+                                        self.businessCategories.insert(c.title!)
+
+                                    }
+                                }
+                            }
+                        }
+                       
+                        // When assigning a published property from a background thread, should always dispatch to main queue
+                        DispatchQueue.main.async {
+                            
+                            self.restaurants.append(contentsOf: businesses)
+                    
+                        }
+                    }
+                    catch {
+                        print(error)
+                    }
+                }
+            }
+            
+            dataTask.resume()
+        }
+    }
+    
+    //MARK: - Diagnosis
+    
+    //calculator to score diagnosis results
     
     func scoreDiagnosis() {
+        //Each condition in JSON file has a list of symptoms with a score value for each symptom. Here we add the value of each symptom if it is present in the condition and gives a final score.
         
-            for cond in conditions {
+        for cond in conditions {
             
+            //Need to set other than nil
             cond.conditionScore = 1
             
             for sympt in self.selectedSymptoms {
@@ -165,277 +311,63 @@ class ZeusModel:  NSObject, CLLocationManagerDelegate, ObservableObject {
             
         }
     }
-  
-    var specialtyConvertedToString = [
-        
-        "a1" : "Aesthetics",
-        "a2" : "Allergy",
-        "a4" : "Alternative Medicine",
-        "a5" : "Anesthesia",
-        "a6" : "Audiologist",
-        "a7" : "Behavior Analyst",
-        "a9" : "Cardiac",
-        "a10" : "Cardiothoracic Surgeons",
-        "a11" : "Chiropractice",
-        "a12" : "Clinics",
-        "a13" : "Crowns & Bridgework",
-        "a14" : "Dermatology",
-        "a16" : "Dietitian",
-        "a17" : "Durable Medical Equipment",
-        "a18" : "Emergency",
-        "a20" : "Otolaryngology",
-        "a21" : "Family Medicine",
-        "a22" : "Gastroenterology",
-        "a23" : "General Medicine",
-        "a25" : "Geriatric Medicine",
-        "a26" : "Hair Loss",
-        "a27" : "Hematology and Oncology",
-        "a29" : "Hospital",
-        "a30" : "Hyperbaric Medicine",
-        "a31" : "Diagnostic Medicine",
-        "a33" : "Laboratory",
-        "a34" : "Laser Hair Removal",
-        "a36" : "Massage",
-        "a38" : "Medical Center",
-        "a39" : "Medical Fitness",
-        "a40" : "Medical Equipment",
-        "a41" : "Medical Spa",
-        "a42" : "Neonatal-Perinatal Medicine",
-        "a43" : "Nephrology",
-        "a44" : "Neurological Surgery",
-        "a45" : "Neurology (parkinson)",
-        "a46" : "Nurse Practitioner",
-        "a47" : "Nutrition",
-        "a48" : "OB-GYN",
-        "a49" : "Occupational Medicine",
-        "a50" : "Eye Doctor",
-        "a51" : "Optometry",
-        "a52" : "Hearing and Vision ",
-        "a53" : "Oral & Maxillofacial Surgery",
-        "a54" : "Orthopedics",
-        "a56" : "Osteopathic",
-        "a57" : "Chronic Fatigue / Low Energy",
-        "a58" : "Palliative Medicine",
-        "a59" : "Pathology",
-        "a60" : "Pediatric Dentist",
-        "a61" : "Pediatric Care",
-        "a62" : "Perinatology",
-        "a63" : "Pharmacy",
-        "a64" : "Physical Therapy",
-        "a65" : "Physician",
-        "a66" : "Physician Assistant",
-        "a67" : "Plastic Surgery",
-        "a68" : "Podiatry",
-        "a70" : "Primary Care Doctor",
-        "a71" : "Prosthetics Service",
-        "a72" : "Psychiatry",
-        "a73" : "Asthma, Allergy, lung, respiratory ",
-        "a74" : "Radiation Oncology",
-        "a75" : "Radiology",
-        "a76" : "Rehab & Sports Medicine",
-        "a77" : "Respiratory ",
-        "a78" : "Autoimmune Diseases",
-        "a80" : "Sleep Medicine",
-        "a81" : "Cosmetics & Beauty Supply",
-        "a82" : "Speech Pathology",
-        "a83" : "Spine Surgeon",
-        "a84" : "Bariatric Surgeon",
-        "a85" : "Medical Surgical Unit",
-        "a86" : "Surgical Oncology",
-        "a87" : "Therapist",
-        "a88" : "Urgent Care",
-        "a90" : "Urological Surgery",
-        "a91" : "Vascular ",
-        "a92" : "Womens Health",
-        "a93" : "Wound & Skin Care",
-        "a94" : "Yoga",
-        "a95" : "Skin Care",
-        "a97" : "Home Health",
-        "a96" : "Beauty"
-    ]
     
-    func createAnArray(selectedCatZM :String) -> [String]  {
-        
-        if selectedCatZM == "Aesthetics, hair, spa,skin" {
-            return ["a1", "a14", "a26", "a34", "a36", "a41", "a67", "a81", "a93", "a94", "a95", "a96"]
-        }
-        else if selectedCatZM == "Hearing, vision, ENT" {
-            return ["a1", "a14", "a26", "a34", "a36", "a41", "a67", "a81", "a93", "a94", "a95", "a96"]
-        }
-        else if selectedCatZM == "Diabetes, nutrition, dietician" {
-            return ["a16", "a47"]
-        }
-        else if selectedCatZM == "Fitness, rehab, sports, physical therapy" {
-            return ["a39", "a49", "a64", "a71", "a76", "a82"]
-        }
-        else if selectedCatZM == "Medical Equipment" {
-            return ["a17"]
-        }
-        else if selectedCatZM == "Pharmacies" {
-            return ["a63"]
-        }
-        else if selectedCatZM == "Alternative Medicine" {
-            return ["a4", "a11"]
-        }
-        else if selectedCatZM == "Osteopathic" {
-            return ["a56"]
-        }
-        else if selectedCatZM == "Clinics" {
-            return ["a12"]
-        }
-        else if selectedCatZM == "Hospital, medical center" {
-            return ["a29", "a38", "a85", "a97"]
-        }
-        else if selectedCatZM == "Emergency" {
-            return ["a18"]
-        }
-        else if selectedCatZM == "Imaging, lab" {
-            return ["a31", "a33", "a75"]
-        }
-        else if selectedCatZM == "Urgent Care" {
-            return ["a88"]
-        }
-        else if selectedCatZM == "General Medicine" {
-            return ["a21", "a23", "a25", "a30", "a46", "a57", "a65", "a66", "a68", "a70", "a78", "a80", "a87"]
-        }
-        else if selectedCatZM == "Allergy, lung, respiratory" {
-            return ["a2", "a73", "a77"]
-        }
-        else if selectedCatZM == "Women's health, OB, GYN" {
-            return ["a48", "a62", "a42", "a92"]
-        }
-        else if selectedCatZM == "Psychiatry and Behavioral health" {
-            return ["a7", "a72"]
-        }
-        else if selectedCatZM == "Palliative Medicine" {
-            return ["a58"]
-        }
-        else if selectedCatZM == "Pathology" {
-            return ["a59"]
-        }
-        else if selectedCatZM == "Pediatric" {
-            return ["a61"]
-        }
-        else if selectedCatZM == "Nephrologist" {
-            return ["a43"]
-        }
-        else if selectedCatZM == "Neurologic, spine" {
-            return ["a44", "a45", "a83"]
-        }
-        else if selectedCatZM == "Orthopedics" {
-            return ["a54"]
-        }
-        else if selectedCatZM == "Hematologic Oncology" {
-            return ["a27", "a74", "a86"]
-        }
-        else if selectedCatZM == "Gastroenterology"  {
-            return ["a22"]
-        }
-        else if selectedCatZM ==  "Cardiac" {
-            return ["a9", "a10"]
-        }
-        else if selectedCatZM ==  "Dental" {
-            return ["a13", "a60"]
-            
-        } else if selectedCatZM ==  "Surgery" {
-            return ["a5", "a84", "a90", "a91"]
-        }
-        return []
-    }
+    
+    // MARK: - Helper functions
+    
+    
+    //MARK: - Shopping
     
     func calculateTotalPrice() {
         
         totalPrice = 0
-            for order in orders {
-                self.totalPrice += ( (order.price ?? 0) * (Double(order.numberOfItems ?? 0)) )
-            }
+        for order in orders {
+            self.totalPrice += ( (order.price ?? 0) * (Double(order.numberOfItems ?? 0)) )
+        }
         
     }
     
     func addProductToCart(product: shoppingItems ){
-       var addNewProduct = true
-       for (index, item) in orders.enumerated() {
-          if item.id == product.id {
-              orders[index].numberOfItems = (orders[index].numberOfItems ?? 0) + 1
-             addNewProduct = false
-          }
-       }
-       if addNewProduct {
-           orders.append(cartItems(id: product.id, title: product.title, numberOfItems: 1, price: product.price, image: product.image1))
-       }
+        var addNewProduct = true
+        for (index, item) in orders.enumerated() {
+            if item.id == product.id {
+                orders[index].numberOfItems = (orders[index].numberOfItems ?? 0) + 1
+                addNewProduct = false
+            }
+        }
+        if addNewProduct {
+            orders.append(cartItems(id: product.id, title: product.title, numberOfItems: 1, price: product.price, image: product.image1))
+        }
     }
-       
+    
     func addToCartItem(product: cartItems ){
         
         for (index, item) in orders.enumerated() {
-           if item.id == product.id {
-               orders[index].numberOfItems = (orders[index].numberOfItems ?? 0) + 1
-           }
+            if item.id == product.id {
+                orders[index].numberOfItems = (orders[index].numberOfItems ?? 0) + 1
+            }
         }
-
+        
     }
     
     func subtractToCartItem(product: cartItems ){
-     
+        
         for (index, item) in orders.enumerated() {
-                     
-           if item.id == product.id {
-               
-               if  orders[index].numberOfItems ?? 0 > 1 {
-                   orders[index].numberOfItems = (orders[index].numberOfItems ?? 0) - 1
-               }
-               else if orders[index].numberOfItems ?? 0 == 1 {
-                   
-                   orders.remove(at: index)
-                   
-               }
             
-           }
+            if item.id == product.id {
+                
+                if  orders[index].numberOfItems ?? 0 > 1 {
+                    orders[index].numberOfItems = (orders[index].numberOfItems ?? 0) - 1
+                }
+                else if orders[index].numberOfItems ?? 0 == 1 {
+                    
+                    orders.remove(at: index)
+                    
+                }
+                
+            }
         }
-
+        
     }
     
 }
-
-/*
- static let fitness =    Bookmark(name:"Fitness, rehab, sports, physical therapy")
- 
- //Medical equipment and pharmacies
- static let equipment =    Bookmark(name:"Medical Equipment")
- static let pharmacies =    Bookmark(name:"Pharmacies")
- 
- //Dental
- static let dental =    Bookmark(name:"Dental")
- 
- //Alternative
- static let alternative =    Bookmark(name:"Alternative Medicine")
- static let osteopathic =    Bookmark(name:"Osteopathic")
- 
- //Medical Help
- static let clinics =    Bookmark(name:"Clinics")
- static let hospital =    Bookmark(name:"Hospital, medical center")
- static let emergency =    Bookmark(name:"Emergency")
- static let imaging =    Bookmark(name:"Imaging, lab")
- static let urgent =    Bookmark(name:"Urgent Care")
- 
- //Specialty
- static let generalMedicine = Bookmark(name:"General Medicine")
- static let allergy = Bookmark(name:"Allergy, lung, respiratory")
- static let surgery = Bookmark(name:"Surgery")
- static let women = Bookmark(name:"Women's health, OB, GYN")
- static let psychiatry = Bookmark(name:"Psychiatry and Behavioral health")
- static let palliative = Bookmark(name:"Palliative Medicine")
- static let pathology = Bookmark(name:"Pathology")
- static let pediatric = Bookmark(name:"Pediatric")
- static let nephrology = Bookmark(name:"Nephrologist")
- static let neurology = Bookmark(name:"Neurologic, spine")
- static let orthopedics = Bookmark(name:"Orthopedics")
- static let hematology = Bookmark(name:"Hematologic Oncology")
- static let gastreoenterology = Bookmark(name:"Gastroenterology")
- static let cardiac = Bookmark(name:"Cardiac")
- 
- */
-
-
-
-
