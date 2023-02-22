@@ -1,7 +1,5 @@
 //
 //  OnboardingView.swift
-//  CitySites2.0
-//
 //  Created by Salah Najm on 9/8/22.
 //
 
@@ -26,10 +24,10 @@ struct OnboardingView: View {
                     Image("city2")
                         .resizable()
                         .scaledToFit()
-                    Text("Welcome to ZeusMedic!")
+                    Text(Constants.OnBoardingWelcomeMessage)
                         .bold()
                         .font(.title)
-                    Text("ZeusMedic helps in findng out what you have, and where you can get health care")
+                    Text(Constants.OnBoardingWelcomeExplanation)
                         .multilineTextAlignment(.center)
                 }
                 .foregroundColor(.white)
@@ -41,10 +39,10 @@ struct OnboardingView: View {
                         Image("city1")
                             .resizable()
                             .scaledToFit()
-                        Text("Ready to start?")
+                    Text(Constants.OnBoardingPage2)
                             .bold()
                             .font(.title)
-                        Text("We'll show you the health care near you")
+                    Text(Constants.OnBoardingPage2Explanation)
                         .multilineTextAlignment(.center)
                         
                     }

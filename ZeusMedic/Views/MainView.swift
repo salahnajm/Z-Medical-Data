@@ -24,13 +24,14 @@ struct MainView: View {
                     
                     Spacer()
                     
-                    Text("ZeusMedic")
+                    Text(Constants.AppTitle)
                         .font(Font.titleText)
                         .bold()
-                    Image("logoTransparent")
+                    
+                    Image(systemName: "bolt.heart.fill")
                         .resizable()
                         .frame(height:170)
-                        .aspectRatio(1, contentMode: .fill)
+                        .aspectRatio(1, contentMode: .fit)
                     //     .scaledToFit()
                     
                     Spacer()

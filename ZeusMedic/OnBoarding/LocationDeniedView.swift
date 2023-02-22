@@ -1,6 +1,5 @@
 //
-//  LocationDeniedVie.swift
-//  CitySites2.0
+//  LocationDeniedView.swift
 //
 //  Created by Salah Najm on 9/8/22.
 //

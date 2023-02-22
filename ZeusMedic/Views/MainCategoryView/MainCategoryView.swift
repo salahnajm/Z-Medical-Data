@@ -1,6 +1,5 @@
 //
-//  RecipeCategoryView.swift
-//  RecipeApp2.0
+//  MainCategoryView.swift
 //
 //  Created by Salah Najm on 9/9/22.
 //
@@ -10,17 +9,17 @@
 
 import SwiftUI
 
-struct ZeusCategoryView: View {
-
+struct MainCategoryView: View {
+    
     @EnvironmentObject var model:ZeusModel
     
     @State var selectedCategory: String?
     
     var body: some View {
-     
-            ScrollView{
-                VStack(alignment:.leading){
-                    ForEach(model.businessCategories.sorted(), id:\.self) { item in
+        
+        ScrollView{
+            VStack(alignment:.leading){
+                ForEach(model.businessCategories.sorted(), id:\.self) { item in
                     
                     NavigationLink(tag:item, selection: $selectedCategory) {
                         //   CategoryListView(selectedCategory: $selectedCategory)
@@ -39,10 +38,10 @@ struct ZeusCategoryView: View {
                             .font(Font.body)
                     }
                     .foregroundColor(.black)
-
+                    
                     
                 }
-                
+                    
                     
                 }
                 

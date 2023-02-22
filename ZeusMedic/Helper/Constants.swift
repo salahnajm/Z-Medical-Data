@@ -14,4 +14,15 @@ struct Constants {
     static var restaurantsKey = "physicians"
     static var sightsKey = "dentists"
     static var value = "50"
+    
+    // OnBoarding page 1
+    static var OnBoardingWelcomeMessage = "Welcome to My Medical App!"
+    static var OnBoardingWelcomeExplanation = "ZeusMedic helps in findng out what you have, and where you can get health care"
+    
+    // OnBoarding page 2
+    static var OnBoardingPage2 = "Ready to start?"
+    static var OnBoardingPage2Explanation = "We'll show you the health care near you"
+    
+    // Title
+    static var AppTitle = "Medic App"
 }

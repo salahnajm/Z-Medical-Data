@@ -11,12 +11,13 @@ struct TopBarView: View {
     
     @EnvironmentObject var model:ZeusModel
     @State var cartViewSelected = false
+    @State var showFormView = false
     
     var body: some View {
         
         HStack {
             Button(action: {
-                // TODO: settings
+               showFormView = true
                 
             }) {
                 Image("menu")
@@ -54,6 +55,9 @@ struct TopBarView: View {
         }
         .padding(.horizontal)
         .background(Color("background"))
+        .sheet(isPresented: $showFormView) {
+            InformationForm()
+        }
     }
 }
 

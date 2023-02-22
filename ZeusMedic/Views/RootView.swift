@@ -1,6 +1,5 @@
 //
-//  ZeusRootView.swift
-//  ZeusMedic
+//  RootView.swift
 //
 //  Created by Salah Najm on 9/19/22.
 //
@@ -35,12 +34,15 @@ struct RootView: View {
                         MainView()
                     case .list:
                         ZeusListView(selectedCategory: $selectedCategory)
-                    case .categories:
-                        ZeusCategoryView()
+                 //   case .categories:
+                  //      MainCategoryView()
+                    case .myHealth:
+                        MyHealthView()
                     case .diagnosis:
                         DiagnosisView(genderPicker: "", agePicker: "", durationOfSymptoms: "")
                     case .news:
                         NewsView()
+                        
                     }
                     
                 }

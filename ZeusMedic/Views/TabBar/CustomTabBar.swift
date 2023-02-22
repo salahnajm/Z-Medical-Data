@@ -13,7 +13,8 @@ enum Tabs:Int {
     case list = 1
     case diagnosis = 2
     case news = 3
-    case categories = 4
+ //   case categories = 4
+    case myHealth = 5
     
 }
 
@@ -63,9 +64,9 @@ struct CustomTabBar: View {
             
             // Categories
             Button {
-                selectedTab = .categories
+                selectedTab = .myHealth
             } label: {
-                TabBarButton(buttonText: "Categories", imageName: "tablecells", isActive: selectedTab == .categories)
+                TabBarButton(buttonText: "My Health", imageName: "heart.fill", isActive: selectedTab == .myHealth)
             }.tint(Color("icons-secondary"))
         
         }

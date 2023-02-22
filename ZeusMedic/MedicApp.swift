@@ -1,6 +1,5 @@
 //
-//  ZeusMedicApp.swift
-//  ZeusMedic
+//  MedicApp.swift
 //
 //  Created by Salah Najm on 9/9/22.
 //
@@ -8,7 +7,7 @@
 import SwiftUI
 
 @main
-struct MedicApp: App {
+struct ZeusMedicApp: App {
 
     var body: some Scene {
         WindowGroup {
